@@ -7,7 +7,15 @@ namespace Controller;
 use Model\Connect;
 
 class CinemaController
-{
+{   
+    // Méthode pour afficher la page d'accueil
+    public function home()
+    {
+        // Inclut la vue home
+        require "view/home.php";
+    }
+
+
     // Méthode pour récupérer et afficher la liste des films
     public function listFilms()
     {
@@ -20,6 +28,7 @@ class CinemaController
         // Inclut la vue qui affiche les films
         require "view/listFilms.php";
     }
+    
 
     // Méthode pour récupérer et afficher la liste des acteurs
     public function listActeurs()

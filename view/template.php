@@ -7,13 +7,17 @@
     <script src="https://kit.fontawesome.com/d036d365f0.js" crossorigin="anonymous"></script>
     <title><?= $titre ?></title>
 </head>
-<header>
-    <?= $contenuNav ?>
-</header>
 <body>
-    <?= $contenu ?>
+    <div id="wrapper">
+        <header>
+            <?= include 'nav.php'; ?>
+        </header>
+        <main>
+            <?= $contenu ?>
+        </main>
+        <footer>
+            <?= include 'footer.php'; ?>
+        </footer>
+    </div>
 </body>
-<footer>
-    <?= $contenuFooter ?>
-</footer>
 </html>

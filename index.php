@@ -26,3 +26,8 @@ if(isset($_GET["action"]))
             break;
     }
 }
+else
+{
+// Si aucune action n'est définie dans l'URL, charger la page d'accueil
+$ctrlCinema->home();
+}
