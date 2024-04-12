@@ -1,6 +1,4 @@
-<?php //ob_start(); ?>
-
-<h1>SUIVEZ NOUS</h1>
+<h3>SUIVEZ NOUS</h3>
 <div class="logo">
     <i class="fa-brands fa-facebook-f fa-lg" style="color: #002367;"></i>
     <i class="fa-brands fa-instagram fa-lg" style="color: #002367;"></i>
@@ -18,11 +16,3 @@
         Copyright © ADMovies. All rights reserved.
     </p>
 </div>
-
-<?php
-
-// // Termine la capture du contenu et le stocke dans $contenu
-// $contenuFooter = ob_get_clean();
-
-
-?>

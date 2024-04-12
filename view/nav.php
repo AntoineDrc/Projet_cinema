@@ -1,4 +1,3 @@
-<?php //ob_start(); ?>
 
 <nav>
     <div class="navTop">
@@ -7,23 +6,15 @@
             <h1>ADMovies</h1>
         </div>
         <div class="barreRecherche">
-            <input type="text" placeholder="Rechercher un film, un acteur ...">
-            <button type="submit">
-                <i class="fa-solid fa-magnifying-glass fa-2xs" style="color: #adadad;"></i>
+            <input id="searchBar" type="text" placeholder="Rechercher un film, un acteur ...">
+            <button id="submitBtn" type="submit">
+                <i class="fa-solid fa-magnifying-glass fa-xs" style="color: #adadad;"></i>
             </button>
         </div>
     </div>
     <div class="navBot">
-        <a href="listFilms.php">FILMS</a>
-        <a href="listActeurs.php">ACTEURS</a>
-        <a href="listRealisateurs.php">REALISATEURS</a>
+        <a href="index.php?action=listFilms">FILMS</a>
+        <a href="index.php?action=listActeurs">ACTEURS</a>
+        <a href="index.php?action=listRealisateurs">REALISATEURS</a>
     </div>
 </nav>
-
-<?php
-
-// Termine la capture du contenu et le stocke dans $contenu
-// $contenuNav = ob_get_clean();
-
-
-?>

@@ -10,13 +10,13 @@
 <body>
     <div id="wrapper">
         <header>
-            <?= include 'nav.php'; ?>
+            <?php include 'nav.php'; ?>
         </header>
         <main>
             <?= $contenu ?>
         </main>
         <footer>
-            <?= include 'footer.php'; ?>
+            <?php include 'footer.php'; ?>
         </footer>
     </div>
 </body>
