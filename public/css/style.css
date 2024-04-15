@@ -92,6 +92,25 @@ nav a {
     margin: 1rem 0;
 }
 
+.carousselBot {
+    display: flex;
+    gap: 1rem;
+    height: 40vh;
+}
+
+.carousselBot img {
+    flex: 1;
+    width: 25%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousselBot img.centrale {
+    flex: 1.5;
+    width: 35%;
+    height: 20rem;
+}
+
 footer {
     display: flex;
     flex-direction: column;

@@ -15,7 +15,7 @@
 <figure>
     <div class="carousselBot">
         <img src="public/img/horreur.jpg" alt="">
-        <img src="public/img/comediesMusicales.jpg" alt="">
+        <img src="public/img/comediesMusicales.jpg" alt="" class="centrale">
         <img src="public/img/scienceFiction.jpg" alt="">
     </div>
 </figure>
