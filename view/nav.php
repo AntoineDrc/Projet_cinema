@@ -3,7 +3,8 @@
     <div class="navTop">
         <div class="nomSite">
             <i class="fa-solid fa-film fa-lg" style="color: #002367;"></i>
-            <h1>ADMovies</h1>
+            <a href="index.php">
+                <h1>ADMovies</h1></a>
         </div>
         <div class="barreRecherche">
             <input id="searchBar" type="text" placeholder="Rechercher un film, un acteur ...">

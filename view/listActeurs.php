@@ -15,8 +15,10 @@
         // Boucle sur chaque acteur récupéré de la base de données.
         foreach($requete->fetchAll() as $personne)
         {
+            $imgPath = "public/img/" . $personne["nom"] . ".jpg"
         ?>
             <tr>
+                <td> <img src=<?="$imgPath" ?> alt=""></td>
                 <td><?= $personne["prenom"] ?></td>
                 <td><?= $personne["nom"] ?></td>
             </tr>

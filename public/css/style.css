@@ -134,11 +134,11 @@ footer {
 }
 
 
-/* LIST FILMS*************************/
+/* LIST FILMS*********************************/
 
 .titre_listFilms {
     text-align: center;
-    margin-top: 2rem;
+    padding-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -153,5 +153,21 @@ footer {
 }
 
 .tableFilms td {
+    text-align: center;
+}
+
+/* LIST ACTEURS******************************* */
+
+.tableActeurs img{
+    width: 10rem;
+    height: auto;
+}
+
+.tableActeurs {
+    border-collapse: separate; 
+    border-spacing: 0 5rem; 
+}
+
+.tableActeurs {
     text-align: center;
 }
