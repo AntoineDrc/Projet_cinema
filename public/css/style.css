@@ -11,8 +11,12 @@
 }
 
 #wrapper {
-    background-color: #ffffff;
+    background-color: #d9d9d9;
     padding: 0 25%;
+}
+
+main {
+    background-color: #ffffff;
 }
 
 
@@ -127,4 +131,27 @@ footer {
 .mentions {
     display: flex;
     gap: 1rem;
+}
+
+
+/* LIST FILMS*************************/
+
+.titre_listFilms {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tableFilms img{
+    width: 10rem;
+    height: auto;
+}
+
+.tableFilms {
+    border-collapse: separate; 
+    border-spacing: 0 5rem; 
+}
+
+.tableFilms td {
+    text-align: center;
 }

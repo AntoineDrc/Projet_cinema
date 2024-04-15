@@ -1,12 +1,11 @@
 <?php ob_start(); ?>
 
-<!-- HTML pour afficher le nombre d'acteurs récupérés. -->
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> acteurs</p>
 
 <!-- Tableau HTML pour lister les acteurs. -->
-<table class="uk-table uk-table-striped">
+<table class="tableActeurs">
     <thead>
         <tr>
+            <th>PHOTO</th>
             <th>PRENOM</th>
             <th>NOM</th>
         </tr>

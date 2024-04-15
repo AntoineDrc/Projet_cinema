@@ -23,7 +23,14 @@ class CinemaController
         $pdo = Connect::seConnecter();
 
         // Exécute la requête SQL pour sélectionner les films
-        $requete = $pdo->query("SELECT titre, anneeSortie FROM film");
+        $requete = $pdo->query
+        ("
+        SELECT titre, anneeSortie,
+        CONCAT(FLOOR(film.duree / 60), 'h', LPAD (film.duree % 60, 2, '0')) AS duree, categorie.genre, film.note
+        FROM film
+        JOIN appartenir ON film.id_film = appartenir.id_film
+        JOIN categorie ON appartenir.id_film = categorie.id_categorie
+        ");
 
         // Inclut la vue qui affiche les films
         require "view/listFilms.php";

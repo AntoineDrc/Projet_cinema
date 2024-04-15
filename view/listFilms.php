@@ -1,14 +1,18 @@
 <?php ob_start(); ?>
 
-<!-- HTML pour afficher le nombre de films récupérés. -->
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
-
+<div class="titre_listFilms">
+    <h1> FILMS A L'AFFICHE</h1>
+</div>
 <!-- Tableau HTML pour lister les films. -->
-<table class="uk-table uk-table-striped">
+<table class="tableFilms">
     <thead>
         <tr>
+            <th>JAQUETTE</th>
             <th>TITRE</th>
-            <th>ANNEE SORTIE</th>
+            <th>ANNEE SORTIE<br></th>
+            <th>DUREE</th>
+            <th>GENRE</th>
+            <th>NOTE</th>
         </tr>
     </thead>
     <tbody>
@@ -16,10 +20,15 @@
         // Boucle sur chaque film récupéré de la base de données.
         foreach($requete->fetchAll() as $film)
         {
+            $imgPath = "public/img/" . $film["titre"] . ".jpg"
         ?>
             <tr>
+                <td> <img src=<?="$imgPath" ?> alt="Jaquette de ($film['titre'])"> </td>
                 <td><?= $film["titre"] ?></td>
                 <td><?= $film["anneeSortie"] ?></td>
+                <td><?= $film["duree"] ?></td>
+                <td><?= $film["genre"] ?></td>
+                <td><?= $film["note"] ?></td>
             </tr>
         <?php
         }
