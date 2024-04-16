@@ -19,8 +19,8 @@
             $detailsUrl = "detailsActeur.php?id_acteur=" . $acteur['id_acteur'];
         ?>
             <tr>
-                <a href=""></a>
-                <td> <img src=<?="$imgPath" ?> alt="Photo de ($personne['prenom'])"></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <img src=<?="$imgPath" ?> alt="Photo de ($personne['prenom'])"></a></td>
                 <td><?= $personne["prenom"] ?></td>
                 <td><?= $personne["nom"] ?></td>
             </tr>
