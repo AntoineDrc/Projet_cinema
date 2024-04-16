@@ -76,18 +76,44 @@ nav a {
     padding: 0.2rem 0;
 }
 
-.carousselTop {
-    display: flex;
-    gap: 0.3rem;
-    height: 65vh;
-    width: 100%;
+.swiper-container {
+    overflow: hidden;
+    position: relative;
 }
 
-.carousselTop img {
-    width: calc(50% - 0.15rem); /* ajuster en déduisant la moitié de l'espace de 'gap' de chaque image */
-    height: auto;
-    object-fit: cover;
+.swiper-slide {
+    width: 100%; 
 }
+
+.carousselTop .swiper-slide {
+    height: 65vh;
+}
+
+.carousselTop .swiper-slide img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.carousselBot .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+.carousselBot .swiper-slide img {
+    width: 60%;
+    height: 50%; 
+    object-fit: contain; 
+}
+
+/* Agrandir l'image du milieu dans le carrousel bot */
+.carousselBot .swiper-slide-active img {
+    transform: scale(1.5);
+    transition: transform 0.7s; /* Animation pour l'effet de zoom */
+}
+
 
 .bannerBot {
     text-align: center;
@@ -96,24 +122,6 @@ nav a {
     margin: 1rem 0;
 }
 
-.carousselBot {
-    display: flex;
-    gap: 1rem;
-    height: 40vh;
-}
-
-.carousselBot img {
-    flex: 1;
-    width: 25%;
-    height: auto;
-    object-fit: cover;
-}
-
-.carousselBot img.centrale {
-    flex: 1.5;
-    width: 35%;
-    height: 20rem;
-}
 
 footer {
     display: flex;
@@ -132,7 +140,6 @@ footer {
     display: flex;
     gap: 1rem;
 }
-
 
 
 /* LIST FILMS*********************************/
