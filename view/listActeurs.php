@@ -18,7 +18,7 @@
             $imgPath = "public/img/" . $personne["nom"] . ".jpg"
         ?>
             <tr>
-                <td> <img src=<?="$imgPath" ?> alt=""></td>
+                <td> <img src=<?="$imgPath" ?> alt="Photo de ($personne['prenom'])"></td>
                 <td><?= $personne["prenom"] ?></td>
                 <td><?= $personne["nom"] ?></td>
             </tr>

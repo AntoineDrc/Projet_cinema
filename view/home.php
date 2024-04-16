@@ -31,3 +31,4 @@ $contenu = ob_get_clean();
 // Inclut le template qui utilise $contenu
 require "view/template.php";
 ?>
+
