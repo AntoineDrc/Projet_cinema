@@ -3,32 +3,35 @@
 <div class="bannerTop">
     <h5>RETROUVEZ NOTRE SELECTION DE FILMS</h5>
 </div>
-<figure>
-    <div class="carousselTop">
-        <img id="film1" src="public/img/inception.jpg" alt="jaquette du film Inception">
-        <img  id="film2" src="public/img/lalaland.jpg" alt="jaquette du film lalaland">
+<!-- Swiper pour le carrousel du haut -->
+<div class="swiper-container carousselTop">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="public/img/inception.jpg" alt="Jaquette du film Inception"></div>
+        <div class="swiper-slide"><img src="public/img/lalaland.jpg" alt="Jaquette du film La La Land"></div>
     </div>
-</figure>
+    <div class="swiper-pagination carousselTop-pagination"></div>
+    <div class="swiper-button-prev carousselTop-button-prev"></div>
+    <div class="swiper-button-next carousselTop-button-next"></div>
+</div>
+
 <div class="bannerBot">
     <h5>PAR GENRES</h5>
 </div>
-<figure>
-    <div class="carousselBot">
-        <img src="public/img/horreur.jpg" alt="">
-        <img src="public/img/comediesMusicales.jpg" alt="" class="centrale">
-        <img src="public/img/scienceFiction.jpg" alt="">
+<!-- Swiper pour le carrousel du bas -->
+<div class="swiper-container carousselBot">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="public/img/horreur.jpg" alt="Genre Horreur"></div>
+        <div class="swiper-slide"><img src="public/img/comediesMusicales.jpg" alt="Genre Comédies Musicales"></div>
+        <div class="swiper-slide"><img src="public/img/scienceFiction.jpg" alt="Genre Science Fiction"></div>
     </div>
-</figure>
+    <div class="swiper-pagination carousselBot-pagination"></div>
+    <div class="swiper-button-prev carousselBot-button-prev"></div>
+    <div class="swiper-button-next carousselBot-button-next"></div>
+</div>
 
 <?php
-// Prépare les variables pour le template 
 $titre = "Accueil";
 $titre_secondaire = "Liste des acteurs";
-
-// Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();
-
-// Inclut le template qui utilise $contenu
 require "view/template.php";
 ?>
-
