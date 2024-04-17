@@ -16,11 +16,11 @@
         foreach($requete->fetchAll() as $personne)
         {
             $imgPath = "public/img/" . $personne["nom"] . ".jpg";
-            $detailsUrl = "detailsActeur.php?id_acteur=" . $acteur['id_acteur'];
+            $detailsUrl = "detailsActeur.php?id_acteur=" . $personne['id_personne'];
         ?>
             <tr>
                 <td><a href="<?= $detailsUrl ?>">
-                    <img src=<?="$imgPath" ?> alt="Photo de ($personne['prenom'])"></a></td>
+                    <img src=<?="$imgPath" ?> alt="Photo de <?= $personne['prenom'] ?>"></a></td>
                 <td><?= $personne["prenom"] ?></td>
                 <td><?= $personne["nom"] ?></td>
             </tr>

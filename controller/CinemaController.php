@@ -1,6 +1,6 @@
 <?php
 
-// Définit le namesapce pour organise le code 
+// Définit le namespace pour organise le code 
 namespace Controller;
 
 // Importe la classe Connect pour la connexion à la base de données 
@@ -50,5 +50,26 @@ class CinemaController
 
         require "view/listActeurs.php";
 
+    }
+
+    // Méthode pour afficher les details d'un acteur 
+    public function detailsActeur($id_acteur)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query
+        ("
+            SELECT prenom, nom, sexe, dateNaissance, biographie
+            FROM personne 
+            JOIN acteur ON personne.id_personne = acteur.id_personne
+            WHERE acteur.id_acteur = :id_acteur
+        ");
+
+        $requete->execute([':id_acteur' => $id_acteur]);
+        
+        // Utilisez fetch() car vous attendez une seule ligne de résultat
+        $details = $requete->fetch();
+        
+        // Vous retournez simplement les données au lieu d'inclure la vue ici
+        return $details;
     }
 }
