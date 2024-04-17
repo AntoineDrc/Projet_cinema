@@ -12,7 +12,11 @@
         <div class="swiper-slide">
             <img src="public/img/lalaland.jpg" alt="Jaquette du film La La Land">
         </div>
-        <div class="swiper-slide"><img src="public/img/jungleCruise.jpg" alt="Jaquette du film Jungle Cruise">
+        <div class="swiper-slide">
+            <img src="public/img/jungleCruise.jpg" alt="Jaquette du film Jungle Cruise">
+        </div>
+        <div class="swiper-slide">
+            <img src="public/img/sinister.jpg" alt="jaquette du film Sinister">
         </div>
     </div>
     <div class="swiper-pagination carousselTop-pagination"></div>
