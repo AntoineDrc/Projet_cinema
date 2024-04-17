@@ -31,7 +31,7 @@ ob_start();
 
 <?php
 // Prépare les variables pour le template 
-$titre = "Liste des acteurs";
+$titre = "Détails Acteur";
 $titre_secondaire = "Liste des acteurs";
 
 // Termine la capture du contenu et le stocke dans $contenu

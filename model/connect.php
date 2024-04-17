@@ -27,11 +27,10 @@ abstract class Connect
                 "mysql:host=".self::HOST.";dbname=".self::DB.";charset=utf8", self::USER, self::PASS
             );
         }
-        catch(\PDOException $ex) // Capture les exceptions spécifiques à PDO.
-        {
-            // En cas d'exception, retourne le message d'erreur associé à l'exception.
-            // Cela permet de renvoyer une indication de l'erreur sans interrompre le script avec un 'die' ou 'exit'.
-            return $ex->getMessage();
+        catch (\PDOException $ex) {
+            // Affiche le message d'erreur et arrête l'exécution du script.
+            die('Erreur de connexion : ' . $ex->getMessage());
         }
+        
     }
 }

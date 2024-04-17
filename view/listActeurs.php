@@ -16,7 +16,7 @@
         foreach($requete->fetchAll() as $personne)
         {
             $imgPath = "public/img/" . $personne["nom"] . ".jpg";
-            $detailsUrl = "detailsActeur.php?id_acteur=" . $personne['id_acteur'];
+            $detailsUrl = "index.php?action=detailsActeur&id_acteur=" . $personne['id_acteur'];
         ?>
             <tr>
                 <td><a href="<?= $detailsUrl ?>">

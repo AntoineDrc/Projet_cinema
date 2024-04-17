@@ -56,23 +56,15 @@ class CinemaController
     public function detailsActeur($id_acteur)
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare
-        ("
-            SELECT prenom, nom, sexe, dateNaissance, biographie
-            FROM personne 
-            JOIN acteur ON personne.id_personne = acteur.id_personne
-            WHERE acteur.id_acteur = :id_acteur
-        ");
+        $requete = $pdo->query
+    ("
+        SELECT prenom, nom, sexe, dateNaissance, biographie
+        FROM personne 
+        JOIN acteur ON personne.id_personne = acteur.id_personne
+        WHERE acteur.id_acteur = {$id_acteur}  
+    ");
 
-        // Exécuter la requête avec le paramètre lié
-        $requete->execute(['id_acteur' => $id_acteur]);
-
-        // Récupérer les résultats de la requête
-        $details = $requete->fetch();
-        var_dump($details);
-
-        // Passer les détails à la vue
-        require "view/detailsActeur.php";
+    require "view/detailsActeur.php";
     }
 
 }
