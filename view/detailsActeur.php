@@ -10,7 +10,6 @@ if (isset($_GET['id_acteur']))
     $detailsActeur = $ctrlCinema->detailsActeur($id_acteur);    
 }
 
-
 ob_start();
 
 ?>

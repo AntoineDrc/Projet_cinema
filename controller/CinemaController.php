@@ -64,12 +64,6 @@ class CinemaController
             WHERE acteur.id_acteur = :id_acteur
         ");
 
-        $requete->execute([':id_acteur' => $id_acteur]);
-        
-        // Utilisez fetch() car vous attendez une seule ligne de résultat
-        $details = $requete->fetch();
-        
-        // Vous retournez simplement les données au lieu d'inclure la vue ici
-        return $details;
+        require "view/detailsActeur.php";
     }
 }
