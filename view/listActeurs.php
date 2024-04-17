@@ -1,15 +1,10 @@
 <?php ob_start(); ?>
 
-
+<div class="titrePage">
+    <h1>TOUT LES ACTEURS</h1>
+</div>
 <!-- Tableau HTML pour lister les acteurs. -->
 <table class="tableActeurs">
-    <thead>
-        <tr>
-            <th>PHOTO</th>
-            <th>PRENOM</th>
-            <th>NOM</th>
-        </tr>
-    </thead>
     <tbody>
         <?php
         // Boucle sur chaque acteur récupéré de la base de données.
@@ -21,8 +16,10 @@
             <tr>
                 <td><a href="<?= $detailsUrl ?>">
                     <img src=<?="$imgPath" ?> alt="Photo de <?= $personne['prenom'] ?>"></a></td>
-                <td><?= $personne["prenom"] ?></td>
-                <td><?= $personne["nom"] ?></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <?= $personne["prenom"] ?></a></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <?= $personne["nom"] ?></a></td>
             </tr>
         <?php
         }

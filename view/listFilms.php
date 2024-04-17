@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<div class="titre_listFilms">
+<div class="titrePage">
     <h1> FILMS A L'AFFICHE</h1>
 </div>
 <!-- Tableau HTML pour lister les films. -->
