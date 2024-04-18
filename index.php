@@ -16,7 +16,7 @@ $ctrlCinema = new CinemaController();
 if(isset($_GET["action"]))
 {
     // Récupère l'ID de l'acteur si présent
-    $id_acteur = $_GET['id_acteur'] ?? null;
+    $id = $_GET['id'] ?? null;
 
     // Execute une action en fonction du paramètre "action"
     switch ($_GET["action"])
@@ -28,7 +28,10 @@ if(isset($_GET["action"]))
             $ctrlCinema->listActeurs();
             break;
         case 'detailsActeur':
-            $ctrlCinema->detailsActeur($id_acteur);
+            $ctrlCinema->detailsActeur($id);
+            break;
+        case 'detailsFilm':
+            $ctrlCinema->detailsFilm($id);
             break;
     }
 }

@@ -20,11 +20,14 @@
         // Boucle sur chaque film récupéré de la base de données.
         foreach($requete->fetchAll() as $film)
         {
-            $imgPath = "public/img/" . $film["titre"] . ".jpg"
+            $imgPath = "public/img/" . $film["titre"] . ".jpg";
+            $detailsUrl = "index.php?action=detailsFilm&id=" . $film['id_film'];
         ?>
             <tr>
-                <td> <img src=<?="$imgPath" ?> alt="Jaquette de ($film['titre'])"> </td>
-                <td><?= $film["titre"] ?></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <img src=<?="$imgPath" ?> alt="Jaquette de ($film['titre'])"></a></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <?= $film["titre"] ?></a></td>
                 <td><?= $film["anneeSortie"] ?></td>
                 <td><?= $film["duree"] ?></td>
                 <td><?= $film["genre"] ?></td>
