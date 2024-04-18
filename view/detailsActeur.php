@@ -1,14 +1,7 @@
 <?php  
 
-use Controller\CinemaController;
-
-
-if (isset($_GET['id_acteur']))
-{
-    $ctrlCinema = new CinemaController();
-    $id_acteur = $_GET['id_acteur'];
-    $detailsActeur = $ctrlCinema->detailsActeur($id_acteur);    
-}
+$listActeurs = $listActeurs->fetchAll();
+$detailsActeur = $requete->fetch();
 
 ob_start();
 

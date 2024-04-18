@@ -64,6 +64,12 @@ class CinemaController
         WHERE acteur.id_acteur = {$id_acteur}  
     ");
 
+    $listActeurs = $pdo->query
+    ("
+        SELECT personne.id_personne, personne.prenom, personne.nom, acteur.id_acteur
+        FROM personne
+        JOIN acteur ON personne.id_personne = acteur.id_personne
+    ");
     require "view/detailsActeur.php";
     }
 
