@@ -7,19 +7,16 @@ ob_start();
 
 ?>
 
-<h1>DETAILS DE L'ACTEUR</h1>
+<div class="titrePage">
+    <h1>DETAILS DE L'ACTEUR</h1>
+</div>
 <div class="acteurDetails">
-      
         <img src="public/image/<?= ($detailsActeur["nom"]) ?>.jpg" alt="">
         <p><?= ($detailsActeur["prenom"]) ?></p>
         <p><?= ($detailsActeur["nom"]) ?></p>
         <p><?= ($detailsActeur["sexe"]) ?></p>
         <p><?= ($detailsActeur["dateNaissance"]) ?></p>
         <p><?= ($detailsActeur["biographie"]) ?></p>
-    <?php
-    
-
-    ?>
 </div>
 
 <?php
