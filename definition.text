@@ -1,0 +1,18 @@
+Requête HTTP :
+Une requête HTTP est une demande envoyé par le navigateur au serveur par le biai d'une URL pour obtenir l'action souhaitée. 
+Elle est constituée :
+    • Corps de requête : Qui indique quel action est demandé, GET pour récuperer des données, POST pour en soumettres
+    • URL : Qui indique au serveur avec quelle page le client veut interagir
+    • Protocole : Comme HTTP, qui définit comment les messages sont formatés et transmis
+
+Faille XSS : Permet à l'attaquand  d'injecter des scripts malveillant (généralement en JS) 
+
+faire vue liste genres
+ 
+    faire biutn ajouter genre , form
+ 
+    creer actio =n dans index
+ 
+    controller creer method addGenreForn
+ 
+    controller methode adGenre

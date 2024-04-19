@@ -1,5 +1,6 @@
 <?php  
 
+
 $listFilms = $listFilms->fetchAll();
 $detailsFilm = $requete->fetch();
 
@@ -15,7 +16,7 @@ ob_start();
     <h1>DETAILS DE L'ACTEUR</h1>
 </div>
 <div class="filmDetails">
-        <img src="public/image/<?= ($detailsFilm["nom"]) ?>.jpg" alt="">
+        <img src="<?= ($detailsFilm["img"]) ?>" alt=">
         <p><?= ($detailsFilm["titre"]) ?></p>
         <p><?= ($detailsFilm["anneeSortie"]) ?></p>
         <p><?= ($detailsFilm["duree"]) ?></p>

@@ -1,6 +1,6 @@
 <?php
 
-// Définit le namespace pour organise le code 
+// Définit le namespace pour organiser le code 
 namespace Controller;
 
 // Importe la classe Connect pour la connexion à la base de données 
@@ -76,11 +76,13 @@ class CinemaController
 
     // Méthode pour afficher les détails d'un film
     public function detailsFilm($id_film)
-    {
+    {   
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare
     ("
     SELECT 
+    film.img,
+    film.id_film,
     film.titre, 
     film.anneeSortie, 
     CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
@@ -116,6 +118,20 @@ class CinemaController
         ");
 
         // Inclut la vue qui affiche les films
-        require "view/listFilms.php";
+        require "view/detailsFilm.php";
+    }
+
+    // Méthode pour ajouter un genre : 
+    public function addGenreForm()
+    { 
+        // $pdo = Connect::seConnecter();
+        // $requete = $pdo->query
+        // ('
+        // INSERT INTO categorie (genre)
+        // VALUES (drame)
+        // ');
+
+        // Inclut la vue qui pour ajouter des genres
+        require "view/genreForm.php";
     }
 }

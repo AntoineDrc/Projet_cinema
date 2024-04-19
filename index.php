@@ -18,6 +18,12 @@ if(isset($_GET["action"]))
     // Récupère l'ID de l'acteur si présent
     $id = $_GET['id'] ?? null;
 
+    if ($id != null)
+    {
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+    };
+
+
     // Execute une action en fonction du paramètre "action"
     switch ($_GET["action"])
     {
@@ -32,6 +38,9 @@ if(isset($_GET["action"]))
             break;
         case 'detailsFilm':
             $ctrlCinema->detailsFilm($id);
+            break;
+        case "addGenreform":
+            $ctrlCinema->addGenreform();
             break;
     }
 }
