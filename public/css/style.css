@@ -175,9 +175,30 @@ footer {
     text-align: center;
 }
 
-/* DEATILS FILM *******************************************/
+/* DETAILS FILM *******************************************/
+.filmDetails {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
 
+.filmInfo {
+    display: flex;
+    flex-direction: column;
+}
 
+.filmDetails img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.filmPhoto {
+    height: 15rem;
+    width: 11rem;
+}
 
 /* LIST ACTEURS******************************* */
 
@@ -214,3 +235,33 @@ footer {
 }
 
 /* DETAILS ACTEURS ***************************************/
+
+.acteurDetails {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.acteurInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.acteurPhoto {
+    height: 15rem;
+    width: 11rem;
+}
+
+.acteurDetails img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.biographie {
+    padding: 2rem;
+    text-align: center;
+}

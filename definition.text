@@ -5,6 +5,10 @@ Elle est constituée :
     • URL : Qui indique au serveur avec quelle page le client veut interagir
     • Protocole : Comme HTTP, qui définit comment les messages sont formatés et transmis
 
-Faille XSS : Permet à l'attaquand  d'injecter des scripts malveillant (généralement en JS) 
 
-Requête prepare : C'
+
+Requête prepare : C'est une technique pour gérer les requêtes SQL, elle à l'avantage d'utiliser des paramètres nommés, cela permet de séparer le code SQL des données, offrant ainsi une protection contre les injections SQL.
+
+
+Faille XSS : Permet à l'attaquant d'injecter des scripts malveillant (généralement en JS).
+Ce type de faille exploite le fait qu'une appli web manipule des données envoyés par l'utilisateur sans les filtrer.

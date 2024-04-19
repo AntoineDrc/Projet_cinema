@@ -58,7 +58,7 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare
     ("
-        SELECT prenom, nom, sexe, dateNaissance, biographie
+        SELECT img, prenom, nom, dateNaissance, biographie
         FROM personne 
         JOIN acteur ON personne.id_personne = acteur.id_personne
         WHERE acteur.id_acteur = :id 

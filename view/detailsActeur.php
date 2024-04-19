@@ -11,12 +11,17 @@ ob_start();
     <h1>DETAILS DE L'ACTEUR</h1>
 </div>
 <div class="acteurDetails">
-        <img src="public/image/<?= ($detailsActeur["nom"]) ?>.jpg" alt="">
+    <div class="acteurPhoto">
+        <img src="<?= ($detailsActeur["img"]) ?>" alt="">
+    </div>
+    <div class="acteurInfo">
         <p><?= ($detailsActeur["prenom"]) ?></p>
         <p><?= ($detailsActeur["nom"]) ?></p>
-        <p><?= ($detailsActeur["sexe"]) ?></p>
-        <p><?= ($detailsActeur["dateNaissance"]) ?></p>
-        <p><?= ($detailsActeur["biographie"]) ?></p>
+        <p>née le : <?= ($detailsActeur["dateNaissance"]) ?></p>
+    </div>
+</div>
+<div class="biographie">
+    <p>Biographie :<br><br><?= ($detailsActeur["biographie"]) ?></p>
 </div>
 
 <?php
