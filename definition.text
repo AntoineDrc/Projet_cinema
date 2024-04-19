@@ -7,12 +7,4 @@ Elle est constituée :
 
 Faille XSS : Permet à l'attaquand  d'injecter des scripts malveillant (généralement en JS) 
 
-faire vue liste genres
- 
-    faire biutn ajouter genre , form
- 
-    creer actio =n dans index
- 
-    controller creer method addGenreForn
- 
-    controller methode adGenre
+Requête prepare : C'

@@ -124,14 +124,23 @@ class CinemaController
     // Méthode pour ajouter un genre : 
     public function addGenreForm()
     { 
-        // $pdo = Connect::seConnecter();
-        // $requete = $pdo->query
-        // ('
-        // INSERT INTO categorie (genre)
-        // VALUES (drame)
-        // ');
+        require "view/genreForm.php";
+    }
 
-        // Inclut la vue qui pour ajouter des genres
+    public function addGenre()
+    {
+        $genre = filter_input(INPUT_POST, "nom_genre", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        if ($genre != null)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare
+            ('
+                INSERT INTO categorie (genre)
+                VALUES (:nom_genre)
+            ');
+            $requete->execute([":nom_genre"=>$genre]);
+        }
         require "view/genreForm.php";
     }
 }

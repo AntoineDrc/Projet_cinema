@@ -39,8 +39,11 @@ if(isset($_GET["action"]))
         case 'detailsFilm':
             $ctrlCinema->detailsFilm($id);
             break;
-        case "addGenreform":
-            $ctrlCinema->addGenreform();
+        case "addGenreForm":
+            $ctrlCinema->addGenreForm();
+            break;
+        case "addGenre":
+            $ctrlCinema->addGenre();
             break;
     }
 }
