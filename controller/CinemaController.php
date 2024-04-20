@@ -54,25 +54,21 @@ class CinemaController
 
     // Méthode pour afficher les détails d'un acteur
     public function detailsActeur($id_acteur)
-    {
-        $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare
+{
+    $pdo = Connect::seConnecter();
+    $requete = $pdo->prepare
     ("
         SELECT img, prenom, nom, dateNaissance, biographie
         FROM personne 
         JOIN acteur ON personne.id_personne = acteur.id_personne
-        WHERE acteur.id_acteur = :id 
+        WHERE acteur.id_acteur = :id_acteur
     ");
-        $requete->execute([":id"=>$id_acteur]);
+    $requete->execute([':id_acteur' => $id_acteur]);
+    $detailsActeur = $requete->fetch();
 
-    $listActeurs = $pdo->query
-    ("
-        SELECT personne.id_personne, personne.prenom, personne.nom, acteur.id_acteur
-        FROM personne
-        JOIN acteur ON personne.id_personne = acteur.id_personne
-    ");
-    require "view/detailsActeur.php";
-    }
+    require "view/detailsActeur.php";  // Passer les détails à la vue
+}
+
 
     // Méthode pour afficher les détails d'un film
     public function detailsFilm($id_film)

@@ -1,7 +1,5 @@
 <?php  
 
-$listActeurs = $listActeurs->fetchAll();
-$detailsActeur = $requete->fetch();
 
 ob_start();
 
