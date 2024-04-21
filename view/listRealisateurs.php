@@ -6,12 +6,14 @@
 
 <?php foreach ($realisateurs as $realisateur) 
 { ?>
-    <div class="realisateurImg">
-        <img src="<?= $realisateur["img"]?>" alt="">
-    </div>
-    <div class="realisateurInfo">
-        <p><?= $realisateur["prenom"]?></p>
-        <p><?= $realisateur["nom"]?></p>
+    <div class="realisateurs">
+        <div class="realisateurImg">
+            <img src="<?= $realisateur["img"]?>" alt="">
+        </div>
+        <div class="realisateurInfo">
+            <p><?= $realisateur["prenom"]?></p>
+            <p><?= $realisateur["nom"]?></p>
+        </div>
     </div>
 <?php 
 } ?>

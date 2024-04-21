@@ -265,3 +265,20 @@ footer {
     padding: 2rem;
     text-align: center;
 }
+
+/* LIST REALISATEURS ****************************************/
+
+.realisateurs {
+    display: flex;
+}
+
+.realisateurImg {
+    height: 15rem;
+    width: 11rem;
+}
+
+.realisateurs img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
