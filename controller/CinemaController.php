@@ -76,42 +76,36 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare
     ("
-    SELECT 
-    film.img,
-    film.id_film,
-    film.titre, 
-    film.anneeSortie, 
-    CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
-    categorie.genre, 
-    persRealisateur.prenom AS prenomRealisateur, 
-    persRealisateur.nom AS nomRealisateur,
-    GROUP_CONCAT(DISTINCT CONCAT(persActeur.prenom, ' ', persActeur.nom) SEPARATOR ', ') AS acteurs, 
-    film.note
-    FROM 
-    film
-    JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
-    JOIN personne AS persRealisateur ON realisateur.id_personne = persRealisateur.id_personne
-    JOIN jouer ON film.id_film = jouer.id_film
-    JOIN acteur ON jouer.id_acteur = acteur.id_acteur
-    JOIN personne AS persActeur ON acteur.id_personne = persActeur.id_personne
-    JOIN appartenir ON film.id_film = appartenir.id_film 
-    JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
-    WHERE film.id_film = :id
-    GROUP BY 
-    film.id_film, film.titre, film.anneeSortie, film.duree, categorie.genre, 
-    persRealisateur.prenom, persRealisateur.nom, film.note;
-
-    ");
-    $requete->execute([":id"=>$id_film]);
-
-    $listFilms = $pdo->query
-        ("
-        SELECT titre, anneeSortie, film.id_film,
-        CONCAT(FLOOR(film.duree / 60), 'h', LPAD (film.duree % 60, 2, '0')) AS duree, categorie.genre, film.note
-        FROM film
-        JOIN appartenir ON film.id_film = appartenir.id_film
+        SELECT 
+        film.img,
+        film.id_film,
+        film.titre, 
+        film.anneeSortie, 
+        CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
+        categorie.genre, 
+        persRealisateur.prenom AS prenomRealisateur, 
+        persRealisateur.nom AS nomRealisateur,
+        GROUP_CONCAT(DISTINCT CONCAT(persActeur.prenom, ' ', persActeur.nom) SEPARATOR ', ') AS acteurs, 
+        film.note
+        FROM 
+        film
+        JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
+        JOIN personne AS persRealisateur ON realisateur.id_personne = persRealisateur.id_personne
+        JOIN jouer ON film.id_film = jouer.id_film
+        JOIN acteur ON jouer.id_acteur = acteur.id_acteur
+        JOIN personne AS persActeur ON acteur.id_personne = persActeur.id_personne
+        JOIN appartenir ON film.id_film = appartenir.id_film 
         JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
-        ");
+        WHERE film.id_film = :id
+        GROUP BY 
+        film.id_film, film.titre, film.anneeSortie, film.duree, categorie.genre, 
+        persRealisateur.prenom, persRealisateur.nom, film.note;
+    ");
+    
+        $requete->execute([":id"=>$id_film]);
+
+        // Récupérer les détails du film
+        $detailsFilm = $requete->fetch();
 
         // Inclut la vue qui affiche les films
         require "view/detailsFilm.php";

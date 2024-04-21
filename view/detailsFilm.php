@@ -1,11 +1,5 @@
 <?php  
-
-
-$listFilms = $listFilms->fetchAll();
-$detailsFilm = $requete->fetch();
-
 ob_start();
-
 ?>
 
 <div class="titrePage">
