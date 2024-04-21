@@ -1,284 +1,280 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
-  
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 
 * {
-    color: #002367;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    font-family: "Krona One";
+  color: #002367;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  font-family: "Krona One";
 }
 
 #wrapper {
-    background-color: #d9d9d9;
-    padding: 0 25%;
+  background-color: #d9d9d9;
+  padding: 0 25%;
 }
 
 main {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 /* NAV ********************************************************/
 
 nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #71acf2;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #71acf2;
+  gap: 1rem;
 }
 
 nav a {
-    text-decoration: none;
-    font-size: 0.8rem;
-    padding: 5px 5px 0 5px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 5px 5px 0 5px;
 }
 
 .navBot a:hover {
-    background-color: #adadad;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+  background-color: #adadad;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .navTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1rem;
 }
 
 .nomSite {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .barreRecherche {
-    position: relative;
+  position: relative;
 }
 
 #searchBar {
-    border: #002367 solid 0.1rem;
-    padding: 0.3rem 0 0.3rem 0.5rem;
-    width: 20rem;
-    border-radius: 10px;
+  border: #002367 solid 0.1rem;
+  padding: 0.3rem 0 0.3rem 0.5rem;
+  width: 20rem;
+  border-radius: 10px;
 }
 
 #submitBtn {
-    position: absolute;
-    right: 0.5rem;
-    top: 0.45rem;
-    border: none;
-    background-color: #ffffff;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.45rem;
+  border: none;
+  background-color: #ffffff;
 }
 
 .navBot {
-    display: flex;
-    gap: 7rem;
-    justify-content: center;
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
 }
 
 /* HOME **********************************************************/
 
 .bannerTop {
-    background-color: #adadad;
-    text-align: center;
-    padding: 0.2rem 0;
+  background-color: #adadad;
+  text-align: center;
+  padding: 0.2rem 0;
 }
 
 .swiper-container {
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 }
 
 .swiper-slide {
-    width: 100%; 
+  width: 100%;
 }
 
 .carousselTop .swiper-slide {
-    height: 65vh;
+  height: 65vh;
 }
 
 .carousselTop .swiper-slide img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .carousselBot .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
 }
 
 .carousselBot .swiper-slide img {
-    width: 60%;
-    height: 50%; 
-    object-fit: contain; 
+  width: 60%;
+  height: 50%;
+  object-fit: contain;
 }
 
 /* Agrandir l'image du milieu dans le carrousel bot */
 .carousselBot .swiper-slide-active img {
-    transform: scale(1.5);
-    transition: transform 0.7s; /* Animation pour l'effet de zoom */
+  transform: scale(1.5);
+  transition: transform 0.7s; /* Animation pour l'effet de zoom */
 }
 
-
 .bannerBot {
-    text-align: center;
-    background-color: #71acf2;
-    padding: 0.2rem 0;
-    margin: 1rem 0;
+  text-align: center;
+  background-color: #71acf2;
+  padding: 0.2rem 0;
+  margin: 1rem 0;
 }
 
 /* FOOTER ***************************************************/
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    background-color: #71acf2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: #71acf2;
 }
 
 .logo {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .mentions {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
-
 
 /* LIST FILMS***************************************/
 
 .titrePage {
-    text-align: center;
-    padding-top: 2rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.tableFilms img{
-    width: 10rem;
-    height: auto;
+.tableFilms img {
+  width: 10rem;
+  height: auto;
 }
 
 .tableFilms {
-    border-collapse: separate; 
-    border-spacing: 0 5rem; 
+  border-collapse: separate;
+  border-spacing: 0 5rem;
 }
 
 .tableFilms td {
-    text-align: center;
+  text-align: center;
 }
 
 /* DETAILS FILM *******************************************/
 .filmDetails {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .filmInfo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .filmDetails img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .filmPhoto {
-    height: 15rem;
-    width: 11rem;
+  height: 15rem;
+  width: 11rem;
 }
 
 /* LIST ACTEURS******************************* */
 
-.tableActeurs img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.tableActeurs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .tableActeurs img:hover {
-    transform: scale(1.1);
-    border-radius: 1rem;
+  transform: scale(1.1);
+  border-radius: 1rem;
 }
 
 .tableActeurs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-collapse: separate; 
-    border-spacing: 1rem 5rem; 
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-collapse: separate;
+  border-spacing: 1rem 5rem;
+  text-align: center;
 }
 
 .tableActeurs td {
-    height: 15rem;
-    width: 11rem;
-    overflow: visible;
-} 
+  height: 15rem;
+  width: 11rem;
+  overflow: visible;
+}
 
 .tableActeurs a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* DETAILS ACTEURS ***************************************/
 
 .acteurDetails {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .acteurInfo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .acteurPhoto {
-    height: 15rem;
-    width: 11rem;
+  height: 15rem;
+  width: 11rem;
 }
 
 .acteurDetails img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .biographie {
-    padding: 2rem;
-    text-align: center;
+  padding: 2rem;
+  text-align: center;
 }
 
 /* LIST REALISATEURS ****************************************/
 
 .realisateurs {
-    display: flex;
+  display: flex;
 }
 
 .realisateurImg {
-    height: 15rem;
-    width: 11rem;
+  height: 15rem;
+  width: 11rem;
 }
 
 .realisateurs img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
