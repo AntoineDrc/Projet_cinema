@@ -48,6 +48,9 @@ class CinemaController
             JOIN acteur ON personne.id_personne = acteur.id_personne
         ");
 
+        // Préparation des données pour la vue
+        $acteurs = $requete->fetchAll();
+
         require "view/listActeurs.php";
 
     }
@@ -109,6 +112,23 @@ class CinemaController
 
         // Inclut la vue qui affiche les films
         require "view/detailsFilm.php";
+    }
+
+    // Méthode pour afficher la liste des réalisateurs 
+    public function listRealisateurs()
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query
+        ("
+            SELECT img, prenom, nom 
+            FROM personne 
+            JOIN realisateur ON personne.id_personne = realisateur.id_personne
+            ORDER BY nom ASC 
+        ");
+
+        $realisateurs = $requete->fetchAll();
+
+        require "view/listRealisateurs.php";
     }
 
     // Méthode pour ajouter un genre : 
