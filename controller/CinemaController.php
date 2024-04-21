@@ -101,7 +101,7 @@ class CinemaController
         film.id_film, film.titre, film.anneeSortie, film.duree, categorie.genre, 
         persRealisateur.prenom, persRealisateur.nom, film.note;
     ");
-    
+
         $requete->execute([":id"=>$id_film]);
 
         // Récupérer les détails du film
@@ -118,9 +118,11 @@ class CinemaController
     }
 
     public function addGenre()
-    {
+    {   
+        // Utilise filter_input pour récupérer et nettoyer le genre envoyé via POST
         $genre = filter_input(INPUT_POST, "nom_genre", FILTER_SANITIZE_SPECIAL_CHARS);
 
+        // Vérifie si la variable genre n'est pas nulle ou vide
         if ($genre != null)
         {
             $pdo = Connect::seConnecter();
