@@ -120,7 +120,7 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->query
         ("
-            SELECT img, prenom, nom 
+            SELECT img, prenom, nom, realisateur.id_realisateur
             FROM personne 
             JOIN realisateur ON personne.id_personne = realisateur.id_personne
             ORDER BY nom ASC 
@@ -131,12 +131,30 @@ class CinemaController
         require "view/listRealisateurs.php";
     }
 
+    // Méthode pour afficher les détails d'un réalisateur
+    public function detailsRealisateur($id_realisateur)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare
+        ("
+            SELECT img, prenom, nom, dateNaissance, biographie 
+            FROM personne 
+            JOIN realisateur ON personne.id_personne = realisateur.id_personne
+            WHERE realisateur.id_realisateur = :id_realisateur
+        ");
+        $requete->execute([':id_realisateur' => $id_realisateur]);
+        $detailsRealisateur = $requete->fetch();
+
+        require "view/detailsRealisateur.php";
+    }
+
     // Méthode pour ajouter un genre : 
     public function addGenreForm()
     { 
         require "view/genreForm.php";
     }
 
+    // Méthode pour récupérer les infos du formulaire et ajouter un genre à la base de données
     public function addGenre()
     {   
         // Utilise filter_input pour récupérer et nettoyer le genre envoyé via POST
@@ -155,4 +173,79 @@ class CinemaController
         }
         require "view/genreForm.php";
     }
+
+    // Méthode pour afficher le formulaire d'ajout de film
+    public function addFilmForm()
+    {
+        // Requête pour récupérer la liste des realisateurs
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query
+        ("
+            SELECT img, prenom, nom, realisateur.id_realisateur
+            FROM personne 
+            JOIN realisateur ON personne.id_personne = realisateur.id_personne
+            ORDER BY nom ASC 
+        ");
+        $realisateurs = $requete->fetchAll();
+        
+        // Requête pour récupérer la liste des genres
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query
+        ("
+            SELECT genre, id_categorie
+            FROM categorie
+        ");
+        $genres = $requete->fetchAll();
+
+        require "view/filmForm.php";
+    }
+
+    // Méthode pour récuperer les infos du formulaire et ajouter un film à la base de données
+    public function addFilm()
+    {
+        // Utilise filter_input pour récupérer et nettoyer les données envoyé via POST
+        $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
+        $anneeSortie = filter_input(INPUT_POST, "anneeSortie", FILTER_SANITIZE_NUMBER_INT);
+        $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
+
+        $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_SPECIAL_CHARS);
+        $realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_NUMBER_INT);
+
+        $pdo = Connect::seConnecter();
+
+        // Vérifie si la variable titre, anneeSortie, duree ne sont pas nulles ou vides
+        if ($titre != null && $anneeSortie != null && $duree != null)
+        {
+            $requete = $pdo->prepare
+            ('
+                INSERT INTO film (titre, anneeSortie, duree, id_realisateur)
+                VALUES (:titre, :anneeSortie, :duree, :id_realisateur) 
+            ');
+            $requete->execute([":titre"=>$titre, ":anneeSortie"=>$anneeSortie, ":duree"=>$duree, ":id_realisateur"=>$realisateur]);        
+        
+        }
+
+        // Vérifie si la variable genre n'est pas nulle ou vide
+        if ($genre != null)
+        {
+            $requete = $pdo->prepare
+            ('
+                INSERT INTO appartenir (id_categorie, id_film)
+                VALUES (:id_categorie, :id_film)
+            ');
+            $requete->execute([":id_categorie"=>$genre, ":id_film"=>$pdo->lastInsertId()]);
+        }
+
+        // Vérifie si la variable realisateur n'est pas nulle ou vide
+        if ($realisateur != null)
+        {
+            $requete = $pdo->prepare
+            ('
+                INSERT INTO realisateur (id_personne)
+                VALUES (:id_realisateur)
+            ');
+            $requete->execute([":id_realisateur"=>$realisateur]);
+        }
+        require "view/filmForm.php";
+    }   
 }

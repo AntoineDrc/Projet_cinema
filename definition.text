@@ -12,3 +12,5 @@ Requête prepare : C'est une technique pour gérer les requêtes SQL, elle à l'
 
 Faille XSS : Permet à l'attaquant d'injecter des scripts malveillant (généralement en JS).
 Ce type de faille exploite le fait qu'une appli web manipule des données envoyés par l'utilisateur sans les filtrer.
+
+

@@ -1,9 +1,4 @@
-<?php  
-
-
-ob_start();
-
-?>
+<?php ob_start(); ?>
 
 <div class="titrePage">
     <h1>DETAILS DE L'ACTEUR</h1>

@@ -5,14 +5,19 @@
 </div>
 
 <?php foreach ($realisateurs as $realisateur) 
-{ ?>
+{ 
+    $detailsUrl = "index.php?action=detailsRealisateur&id=" . $realisateur['id_realisateur'];
+    ?>
     <div class="realisateurs">
         <div class="realisateurImg">
-            <img src="<?= $realisateur["img"]?>" alt="">
+            <a href="<?= $detailsUrl ?>">
+                <img src="<?= $realisateur["img"]?>" alt=""></a>
         </div>
         <div class="realisateurInfo">
-            <p><?= $realisateur["prenom"]?></p>
-            <p><?= $realisateur["nom"]?></p>
+            <a href="<?= $detailsUrl ?>">
+                <p><?= $realisateur["prenom"]?></p></a>
+            <a href="<?= $detailsUrl ?>">
+                <p><?= $realisateur["nom"]?></p>
         </div>
     </div>
 <?php 

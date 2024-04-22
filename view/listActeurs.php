@@ -12,7 +12,8 @@
                 $detailsUrl = "index.php?action=detailsActeur&id=" . $personne['id_acteur'];
             ?>
             <tr>
-                <td><a href="<?= $detailsUrl ?>"><img src="<?= $imgPath ?>" alt="Photo de <?= $personne['prenom'] ?>"></a></td>
+                <td><a href="<?= $detailsUrl ?>">
+                    <img src="<?= $imgPath ?>" alt="Photo de <?= $personne['prenom'] ?>"></a></td>
                 <td><a href="<?= $detailsUrl ?>"><?= $personne["prenom"] ?></a></td>
                 <td><a href="<?= $detailsUrl ?>"><?= $personne["nom"] ?></a></td>
             </tr>
