@@ -54,12 +54,18 @@ if(isset($_GET["action"]))
         case "addRealisateurForm":
             $ctrlCinema->addRealisateurForm();
             break;
+        case "addRealisateur":
+            $ctrlCinema->addRealisateur();
+            break;
         case "listRealisateurs":
             $ctrlCinema->listRealisateurs();
             break;
         case "detailsRealisateur":
             $ctrlCinema->detailsRealisateur($id);
-        
+            break;
+        case "editGenre":
+            $ctrlCinema->editGenre();
+            break;        
     }
 }
 else

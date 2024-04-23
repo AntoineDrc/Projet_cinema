@@ -263,13 +263,36 @@ class CinemaController
         // Vérifie si la variable prenom, nom, sexe, dateNaissance ne sont pas nulles ou vides
         if ($prenom != null && $nom != null && $sexe != null && $dateNaissance != null)
         {
-            $requete = $pdo->prepare
+            // Ajoute une personne à la base de données (table personne)
+            $requetePersonne = $pdo->prepare
             ('
                 INSERT INTO personne (prenom, nom, sexe, dateNaissance)
                 VALUES (:prenom, :nom, :sexe, :dateNaissance)
             ');
-            $requete->execute([":prenom"=>$prenom, ":nom"=>$nom, ":sexe"=>$sexe, ":dateNaissance"=>$dateNaissance]);
+            $requetePersonne->execute
+            ([
+                ":prenom"=>$prenom, 
+                ":nom"=>$nom, 
+                ":sexe"=>$sexe, 
+                ":dateNaissance"=>$dateNaissance
+            ]);
+
+            // Récupère l'ID de la personne ajoutée
+            $idPersonne = $pdo->lastInsertId();
+
+            // Ajoute un réalisateur à la base de données (table réalisateur)
+            $requeteRealisateur = $pdo->prepare
+            ('
+                INSERT INTO realisateur (id_personne)
+                VALUES (:id_personne)
+            ');
+            $requeteRealisateur->execute([":id_personne"=>$idPersonne]);
+
         }
+        require "view/realisateurForm.php";
     }
+
+    // Méthode pour éditer un genre
+    
 
 }
