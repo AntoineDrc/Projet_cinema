@@ -32,6 +32,9 @@ class CinemaController
         JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
         ");
 
+        // Préparation des données pour la vue
+        $films = $requete->fetchAll();
+
         // Inclut la vue qui affiche les films
         require "view/listFilms.php";
     }
@@ -53,6 +56,37 @@ class CinemaController
 
         require "view/listActeurs.php";
 
+    }
+
+    // Méthode pour afficher la liste des genres
+    public function listGenres()
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query
+        ("
+            SELECT img, genre, id_categorie
+            FROM categorie
+        ");
+
+        $genres = $requete->fetchAll();
+
+        require "view/listGenres.php";
+    }
+
+    // Méthode pour afficher les détails d'un genre
+    public function detailsGenre($id_genre)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare
+        ("
+            SELECT img, genre, id_categorie
+            FROM categorie
+            WHERE id_categorie = :id_genre
+        ");
+        $requete->execute([':id_genre' => $id_genre]);
+        $detailsGenre = $requete->fetch();
+
+        require "view/detailsGenre.php";
     }
 
     // Méthode pour afficher les détails d'un acteur
@@ -292,7 +326,37 @@ class CinemaController
         require "view/realisateurForm.php";
     }
 
-    // Méthode pour éditer un genre
-    
+    // Méthode pour afficher le formulaire d'édit de genre
+    public function editGenreForm($id_genre)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare
+        ("
+            SELECT genre, id_categorie
+            FROM categorie
+            WHERE id_categorie = :id_genre
+        ");
+        $requete->execute([':id_genre' => $id_genre]);
+        $genre = $requete->fetch();
+
+        require "view/editGenreForm.php";
+    }
+
+    // Méthode pour récuperer les info du formulaire et modifier le genre dans la base de données
+    public function editGenre($id_genre)
+    {
+        $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare
+        ("
+            UPDATE categorie
+            SET genre = :nom_genre
+            WHERE id_categorie = :id_genre
+        ");
+        $requete->execute([':nom_genre'=>$genre, ':id_genre'=>$id_genre]);
+
+        header('location:index.php?action=editGenreForm&id='.$id_genre);
+    }
 
 }

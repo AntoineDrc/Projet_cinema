@@ -17,9 +17,9 @@
         <a href="index.php?action=listFilms">FILMS</a>
         <a href="index.php?action=listActeurs">ACTEURS</a>
         <a href="index.php?action=listRealisateurs">REALISATEURS</a>
+        <a href="index.php?action=listGenres">GENRES</a>
         <a href="index.php?action=addGenreForm">addGENRE</a>
         <a href="index.php?action=addFilmForm">addFILM</a>
         <a href="index.php?action=addRealisateurForm">addREALISATEUR</a>
-        <a href="index.php?action=editGenre">editGENRE</a>
     </div>
 </nav>

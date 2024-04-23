@@ -5,18 +5,16 @@
 </div>
 
 <div class="formulaire">
-    <form action="index.php?action=addRealisateur" method="post">
-        <div class="entreeRealisateur">
-            <label for="Prenom">Prénom</label>
-            <input type="text" name="prenom">
-            <label for="Nom">Nom :</label>
-            <input type="text" name="nom">
-            <label for="Sexe">Sexe</label>
-            <input type="text" name="sexe">
-            <label for="DateNaissance">Date de naissance</label>
-            <input type="text" name="dateNaissance">
-            <input type="submit" value="Ajouter Réalisateur">
-        </div>
+    <form action="index.php?action=addRealisateur" method="post" class="entreeRealisateur">
+        <label for="Prenom">Prénom</label>
+        <input type="text" name="prenom">
+        <label for="Nom">Nom :</label>
+        <input type="text" name="nom">
+        <label for="Sexe">Sexe</label>
+        <input type="text" name="sexe">
+        <label for="DateNaissance">Date de naissance</label>
+        <input type="text" name="dateNaissance">
+        <input type="submit" value="Ajouter Réalisateur">
     </form>
 </div>
 
@@ -31,4 +29,3 @@ $contenu = ob_get_clean();
 // Appelle le template
 require "view/template.php";
 ?>
-

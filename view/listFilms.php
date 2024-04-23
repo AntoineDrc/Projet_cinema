@@ -18,7 +18,7 @@
     <tbody>
         <?php
         // Boucle sur chaque film récupéré de la base de données.
-        foreach($requete->fetchAll() as $film)
+        foreach ($films as $film)
         {
             $imgPath = "public/img/" . $film["titre"] . ".jpg";
             $detailsUrl = "index.php?action=detailsFilm&id=" . $film['id_film'];

@@ -313,3 +313,52 @@ form input, select {
 .entreeGenre input{
   display: inline;
 }
+
+/* LIST GENRES ***************************************/
+
+.genres {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.genreImg {
+  height: 15rem;
+  width: 11rem;
+}
+
+.genres img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+/* DETAILS GENRE ********************************/
+
+.genreDetails {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.genreInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.genreDetails img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.genrePhoto {
+  height: 15rem;
+  width: 11rem;
+}
+

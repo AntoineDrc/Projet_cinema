@@ -63,9 +63,18 @@ if(isset($_GET["action"]))
         case "detailsRealisateur":
             $ctrlCinema->detailsRealisateur($id);
             break;
-        case "editGenre":
-            $ctrlCinema->editGenre();
+        case "listGenres":
+            $ctrlCinema->listGenres();
+            break;
+        case "detailsGenre":
+            $ctrlCinema->detailsGenre($id);
+            break;
+        case "editGenreForm":
+            $ctrlCinema->editGenreForm($id);
             break;        
+        case "editGenre":
+            $ctrlCinema->editGenre($id);
+            break;
     }
 }
 else
