@@ -210,7 +210,7 @@ class CinemaController
 
         $genre = filter_input(INPUT_POST, "genre", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         $realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_NUMBER_INT);
-        
+
         $pdo = Connect::seConnecter();
 
         // Vérifie si la variable titre, anneeSortie, duree ne sont pas nulles ou vides
@@ -224,28 +224,52 @@ class CinemaController
             $requete->execute([":titre"=>$titre, ":anneeSortie"=>$anneeSortie, ":duree"=>$duree, ":id_realisateur"=>$realisateur]);        
         
         }
-
         // Vérifie si la variable genre n'est pas nulle ou vide
         if ($genre != null)
         {
-            $requete = $pdo->prepare
-            ('
-                INSERT INTO appartenir (id_categorie, id_film)
-                VALUES (:id_categorie, :id_film)
-            ');
-            $requete->execute([":id_categorie"=>$genre, ":id_film"=>$pdo->lastInsertId()]);
+            $idFilm = $pdo->lastInsertId();
+            foreach ($genre as $g)
+            {
+                $requete = $pdo->prepare
+                ('
+                    INSERT INTO appartenir (id_categorie, id_film)
+                    VALUES (:id_categorie, :id_film)
+                ');
+                $requete->execute([":id_categorie"=>$g, ":id_film"=>$idFilm ]);
+            }
         }
+        
+        require "view/filmForm.php";
+        
+    }   
 
-        // Vérifie si la variable realisateur n'est pas nulle ou vide
-        if ($realisateur != null)
+    // Méthode pour afficher le formulaire d'ajout de réalisateur
+    public function addRealisateurForm()
+    {
+        require "view/realisateurForm.php";
+    }
+
+    // Méthode pour récupérer les infos du formulaire et ajouter un réalisateur à la base de données
+    public function addRealisateur()
+    {
+        // Utilise filter_input pour récupérer et nettoyer les données envoyé via POST
+        $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_SPECIAL_CHARS);
+        $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_SPECIAL_CHARS);
+        $sexe = filter_input(INPUT_POST, "sexe", FILTER_SANITIZE_SPECIAL_CHARS);
+        $dateNaissance = filter_input(INPUT_POST, "dateNaissance", FILTER_SANITIZE_NUMBER_INT);
+
+        $pdo = Connect::seConnecter();
+
+        // Vérifie si la variable prenom, nom, sexe, dateNaissance ne sont pas nulles ou vides
+        if ($prenom != null && $nom != null && $sexe != null && $dateNaissance != null)
         {
             $requete = $pdo->prepare
             ('
-                INSERT INTO realisateur (id_personne)
-                VALUES (:id_realisateur)
+                INSERT INTO personne (prenom, nom, sexe, dateNaissance)
+                VALUES (:prenom, :nom, :sexe, :dateNaissance)
             ');
-            $requete->execute([":id_realisateur"=>$realisateur]);
+            $requete->execute([":prenom"=>$prenom, ":nom"=>$nom, ":sexe"=>$sexe, ":dateNaissance"=>$dateNaissance]);
         }
-        require "view/filmForm.php";
-    }   
+    }
+
 }

@@ -78,7 +78,7 @@ nav a {
 
 .navBot {
   display: flex;
-  gap: 5rem;
+  gap: 4rem;
   justify-content: center;
 }
 

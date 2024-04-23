@@ -19,5 +19,6 @@
         <a href="index.php?action=listRealisateurs">REALISATEURS</a>
         <a href="index.php?action=addGenreForm">addGENRE</a>
         <a href="index.php?action=addFilmForm">addFILM</a>
+        <a href="index.php?action=addRealisateurForm">addREALISATEUR</a>
     </div>
 </nav>

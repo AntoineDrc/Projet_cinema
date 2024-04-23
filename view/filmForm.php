@@ -11,15 +11,16 @@
             <label for="Année">Année :</label>
             <input type="text" name="anneeSortie">
             <label for="Durée">Durée</label>
-            <input type="text" name="duree"><br>
+            <input type="text" name="duree">
         </div>
 
         <!-- Menu déroulant pour selectionner un genre existant -->
         <div class="entreeGenre">
             <label for="ChoixGenre">Choix du genre :</label>
-            <select name="genre" multiple>
+            <select name="genre[]" multiple>
                 <option value="">Choisir un genre</option>
                 <?php
+                
                 foreach ($genres as $genre) // Boucle pour afficher les genres
                 {
                 ?>
@@ -51,6 +52,7 @@
 </div>
 
 <?php
+
 // Prépare les variables pour le template 
 $titre = "Ajouter Film";
 $titre_secondaire = "";
@@ -60,4 +62,5 @@ $contenu = ob_get_clean();
 
 // Inclut le template qui utilise $contenu
 require "view/template.php";
+
 ?>
