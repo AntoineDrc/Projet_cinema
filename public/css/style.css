@@ -309,3 +309,7 @@ form input, select {
   margin: auto;
   padding: 1rem 0; 
 }
+
+.entreeGenre input{
+  display: inline;
+}

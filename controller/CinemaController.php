@@ -208,9 +208,9 @@ class CinemaController
         $anneeSortie = filter_input(INPUT_POST, "anneeSortie", FILTER_SANITIZE_NUMBER_INT);
         $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
 
-        $genre = filter_input(INPUT_POST, "genre", FILTER_SANITIZE_SPECIAL_CHARS);
+        $genre = filter_input(INPUT_POST, "genre", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         $realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_NUMBER_INT);
-
+        
         $pdo = Connect::seConnecter();
 
         // Vérifie si la variable titre, anneeSortie, duree ne sont pas nulles ou vides

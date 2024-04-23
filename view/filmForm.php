@@ -17,7 +17,7 @@
         <!-- Menu déroulant pour selectionner un genre existant -->
         <div class="entreeGenre">
             <label for="ChoixGenre">Choix du genre :</label>
-            <select name="genre">
+            <select name="genre" multiple>
                 <option value="">Choisir un genre</option>
                 <?php
                 foreach ($genres as $genre) // Boucle pour afficher les genres
