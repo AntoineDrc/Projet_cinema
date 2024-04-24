@@ -21,7 +21,7 @@
         foreach ($films as $film)
         {
             $imgPath = "public/img/" . $film["titre"] . ".jpg";
-            $detailsUrl = "indexFilm.php?action=detailsFilm&id=" . $film['id_film'];
+            $detailsUrl = "index.php?action=detailsFilm&id=" . $film['id_film'];
         ?>
             <tr>
                 <td><a href="<?= $detailsUrl ?>">

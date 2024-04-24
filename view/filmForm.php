@@ -4,7 +4,7 @@
     <h1>AJOUTER UN FILM</h1>
 </div>
 <div class="formulaire">
-    <form action="indexFilm.php?action=addFilm" method="post">
+    <form action="index.php?action=addFilm" method="post">
         <div class="entreeFilm">
             <label for="Titre">Titre</label>
             <input type="text" name="titre">
@@ -21,13 +21,11 @@
                 <option value="">Choisir un genre</option>
                 <?php
                 
-                foreach ($genres as $genre) // Boucle pour afficher les genres
-                {
-                ?>
+                foreach ($genres as $genre) 
+                { ?>
                     <option value="<?= $genre["id_categorie"] ?>"><?= $genre["genre"] ?></option>
                 <?php
-                }
-                ?>
+                } ?>
             </select><br>
         </div>
 
@@ -46,7 +44,6 @@
                 ?>
             </select><br><br>
         </div>
-
         <input type="submit" value="Ajouter le film">
     </form>
 </div>

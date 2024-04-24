@@ -1,6 +1,7 @@
 <?php
 
 // Utilise l'espace de noms du contrôleur pour accèder aux différentes classes de contrôleurs
+use Controller\FilmController;
 use Controller\GenreController;
 use Controller\ActeurController;
 use Controller\RealisateurController;
@@ -13,6 +14,7 @@ spl_autoload_register(function ($class_name)
 });
 
 // Instancie les différents contrôleurs
+$ctrlFilm = new FilmController();
 $ctrlGenre = new GenreController();
 $ctrlActeur = new ActeurController();
 $ctrlRealisateur = new RealisateurController();
@@ -30,32 +32,23 @@ if (isset($_GET["action"])) {
     // Execute une action en fonction du paramètre "action"
     switch ($_GET["action"]) 
     {
+        case "listFilms": // Affiche la liste des films
+            $ctrlFilm->listFilms();
+            break;
+        case 'detailsFilm':
+            $ctrlFilm->detailsFilm($id);
+            break;
+        case "addFilmForm":
+            $ctrlFilm->addFilmForm();
+            break;
+        case "addFilm":
+            $ctrlFilm->addFilm();
+            break;
         case "listActeurs": 
             $ctrlActeur->listActeurs();
             break;
         case 'detailsActeur':
             $ctrlActeur->detailsActeur($id);
-            break;
-        case "addGenreForm":
-            $ctrlGenre->addGenreForm();
-            break;
-        case "addGenre":
-            $ctrlGenre->addGenre();
-            break;
-        case "addRealisateurForm":
-            $ctrlRealisateur->addRealisateurForm();
-            break;
-        case "addRealisateur":
-            $ctrlRealisateur->addRealisateur();
-            break;
-        case "listRealisateurs":
-            $ctrlRealisateur->listRealisateurs();
-            break;
-        case "detailsRealisateur":
-            $ctrlRealisateur->detailsRealisateur($id);
-            break;
-        case "listGenres":
-            $ctrlGenre->listGenres();
             break;
         case "listRoles":
             $ctrlRole->listRoles();
@@ -63,8 +56,28 @@ if (isset($_GET["action"])) {
         case "detailsRole":
             $ctrlRole->detailsRole($id);
             break;
+        case "listRealisateurs":
+            $ctrlRealisateur->listRealisateurs();
+            break;
+        case "detailsRealisateur":
+            $ctrlRealisateur->detailsRealisateur($id);
+            break;
+        case "addRealisateurForm":
+            $ctrlRealisateur->addRealisateurForm();
+            break;
+        case "addRealisateur":
+            $ctrlRealisateur->addRealisateur();
+            break;
+        case "listGenres":
+            $ctrlGenre->listGenres();
+            break;
         case "detailsGenre":
             $ctrlGenre->detailsGenre($id);
+        case "addGenreForm":
+            $ctrlGenre->addGenreForm();
+            break;
+        case "addGenre":
+            $ctrlGenre->addGenre();
             break;
         case "editGenreForm":
             $ctrlGenre->editGenreForm($id);
@@ -76,5 +89,5 @@ if (isset($_GET["action"])) {
 } else 
 {
     // Si aucune action n'est définie dans l'URL, charger la page d'accueil
-    $ctrlCinema->home();
+    $ctrlGenre->home();
 }

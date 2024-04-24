@@ -13,13 +13,13 @@
         </div>
     </div>
     <div class="navBot">
-        <a href="indexFilm.php?action=listFilms">FILMS</a>
+        <a href="index.php?action=listFilms">FILMS</a>
         <a href="index.php?action=listActeurs">ACTEURS</a>
         <a href="index.php?action=listRealisateurs">REALISATEURS</a>
         <a href="index.php?action=listGenres">GENRES</a>
         <a href="index.php?action=listRoles">ROLES</a>
         <a href="index.php?action=addGenreForm">addGENRE</a>
-        <a href="indexFilm.php?action=addFilmForm">addFILM</a>
+        <a href="index.php?action=addFilmForm">addFILM</a>
         <a href="index.php?action=addRealisateurForm">addREALISATEUR</a>
     </div>
 </nav>
