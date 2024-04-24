@@ -27,5 +27,5 @@ $titre_secondaire = "";
 $contenu = ob_get_clean();
 
 // Appelle le template
-require "view/template.php";
+require "view/template/template.php";
 ?>

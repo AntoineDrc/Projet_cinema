@@ -51,5 +51,5 @@
 $titre = "Accueil";
 $titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();
-require "view/template.php";
+require "view/template/template.php";
 ?>

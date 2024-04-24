@@ -20,7 +20,7 @@ class RealisateurController
 
         $realisateurs = $requete->fetchAll();
 
-        require "view/listRealisateurs.php";
+        require "view/realisateur/listRealisateurs.php";
     }
 
     // Méthode pour afficher les détails d'un réalisateur
@@ -59,13 +59,13 @@ class RealisateurController
 
         $nbFilms = $requeteNbFilms->fetchAll();
 
-        require "view/detailsRealisateur.php";
+        require "view/realisateur/detailsRealisateur.php";
     }
 
     // Méthode pour afficher le formulaire d'ajout de réalisateur
     public function addRealisateurForm()
     {
-        require "view/realisateurForm.php";
+        require "view/realisateur/realisateurForm.php";
     }
 
     // Méthode pour récupérer les infos du formulaire et ajouter un réalisateur à la base de données
@@ -110,7 +110,7 @@ class RealisateurController
             ([
                 ":id_personne" => $idPersonne
             ]);
-            require "view/realisateurForm.php";
+            require "view/realisateur/realisateurForm.php";
         }
     }
 }

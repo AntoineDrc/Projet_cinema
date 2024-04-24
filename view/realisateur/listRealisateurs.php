@@ -27,5 +27,5 @@
 $titre = "Liste des realisateurs";
 $titre_secondaire = "Liste des realisateurs";
 $contenu = ob_get_clean();
-require "view/template.php";
+require "view/template/template.php";
 ?>

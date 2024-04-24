@@ -20,7 +20,7 @@ class ActeurController
         // Préparation des données pour la vue
         $acteurs = $requete->fetchAll();
 
-        require "view/listActeurs.php";
+        require "view/acteur/listActeurs.php";
     }
 
     // Méthode pour afficher les détails d'un acteur
@@ -60,6 +60,6 @@ class ActeurController
         
         $nbFilms = $requeteNbFilms->fetchAll();
 
-        require "view/detailsActeur.php";  
+        require "view/acteur/detailsActeur.php";  
     }
 }

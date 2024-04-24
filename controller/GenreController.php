@@ -12,7 +12,7 @@ class GenreController
     public function home()
     {
         // Inclut la vue home
-        require "view/home.php";
+        require "view/template/home.php";
     }
 
     // Méthode pour afficher la liste des genres
@@ -27,7 +27,7 @@ class GenreController
 
         $genres = $requete->fetchAll();
 
-        require "view/listGenres.php";
+        require "view/genre/listGenres.php";
     }
 
     // Méthode pour afficher les détails d'un genre
@@ -66,19 +66,13 @@ class GenreController
 
         $films = $requeteFilmGenre->fetchAll();
 
-        require "view/detailsGenre.php";
+        require "view/genre/detailsGenre.php";
     }
-
-    
-
-    
-
-    
 
     // Méthode pour ajouter un genre : 
     public function addGenreForm()
     {
-        require "view/genreForm.php";
+        require "view/genre/genreForm.php";
     }
 
     // Méthode pour récupérer les infos du formulaire et ajouter un genre à la base de données
@@ -96,7 +90,7 @@ class GenreController
             ');
             $requete->execute([":nom_genre" => $genre]);
         }
-        require "view/genreForm.php";
+        require "view/genre/genreForm.php";
     }
 
     // Méthode pour afficher le formulaire d'édit de genre
@@ -111,7 +105,7 @@ class GenreController
         $requete->execute([':id_genre' => $id_genre]);
         $genre = $requete->fetch();
 
-        require "view/editGenreForm.php";
+        require "view/genre/editGenreForm.php";
     }
 
     // Méthode pour récuperer les info du formulaire et modifier le genre dans la base de données

@@ -34,5 +34,5 @@ $titre_secondaire = "Liste des genres";
 $contenu = ob_get_clean();
 
 // Inclut le template qui utilise $contenu
-require "view/template.php";
+require "view/template/template.php";
 ?>

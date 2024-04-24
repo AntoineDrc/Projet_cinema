@@ -26,7 +26,7 @@ class FilmController
         $films = $requete->fetchAll();
 
         // Inclut la vue qui affiche les films
-        require "view/listFilms.php";
+        require "view/film/listFilms.php";
     }
 
     // Méthode pour afficher les détails d'un film
@@ -89,7 +89,7 @@ class FilmController
         $casting = $requeteCasting->fetchAll();
 
         // Inclut la vue qui affiche les films
-        require "view/detailsFilm.php";
+        require "view/film/detailsFilm.php";
     }
 
     // Méthode pour afficher le formulaire d'ajout de film
@@ -117,7 +117,7 @@ class FilmController
 
         $genres = $requete->fetchAll();
 
-        require "view/filmForm.php";
+        require "view/film/filmForm.php";
     }
 
     // Méthode pour récuperer les infos du formulaire et ajouter un film à la base de données
@@ -170,6 +170,6 @@ class FilmController
             }
         }
 
-        require "view/filmForm.php";
+        require "view/film/filmForm.php";
     }
 }

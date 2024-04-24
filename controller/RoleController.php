@@ -22,7 +22,7 @@ class RoleController
 
         $roles = $requete->fetchAll();
 
-        require "view/listRoles.php";
+        require "view/role/listRoles.php";
     }
 
     // Méthode pour afficher les détails d'un rôle
@@ -48,6 +48,6 @@ class RoleController
 
         $detailsRole = $requete->fetch();
 
-        require "view/detailsRole.php";
+        require "view/role/detailsRole.php";
     }
 }

@@ -5,7 +5,6 @@ $detailsUrl = "index.php?action=editGenreForm&id=" . $detailsGenre['id_categorie
 <div class="titrePage">
     <h1>DETAILS DU GENRE</h1>
 </div>
-
 <div class="genreDetails">
     <div class="genrePhoto">
         <a href="<?= $detailsUrl ?>">
@@ -17,13 +16,13 @@ $detailsUrl = "index.php?action=editGenreForm&id=" . $detailsGenre['id_categorie
         </a>
     </div>
 </div>
-
 <div class="titreSecondaire">
     <h2>FILMS</h2>
 </div>
 <div class="filmographie">
     <?php
-    foreach ($films as $film) {
+    foreach ($films as $film) 
+    {
     ?>
         <table>
             <thead>
@@ -44,14 +43,9 @@ $detailsUrl = "index.php?action=editGenreForm&id=" . $detailsGenre['id_categorie
             </tbody>
         </table>
     <?php
-
     }
-
     ?>
-
 </div>
-
-
 
 <?php
 // Prépare les variables pour le template 
@@ -62,5 +56,5 @@ $titre_secondaire = "";
 $contenu = ob_get_clean();
 
 // Inclut le template qui utilise $contenu
-require "view/template.php";
+require "view/template/template.php";
 ?>
