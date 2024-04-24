@@ -86,6 +86,18 @@ class CinemaController
         $requete->execute([':id_genre' => $id_genre]);
         $detailsGenre = $requete->fetch();
 
+        $requeteFilmGenre = $pdo->prepare
+        ("
+            SELECT film.img, film.titre, film.anneeSortie, film.duree
+            FROM categorie
+            JOIN appartenir ON categorie.id_categorie = appartenir.id_categorie
+            JOIN film ON appartenir.id_film = film.id_film
+            WHERE categorie.id_categorie = :id_genre
+            ORDER BY titre ASC 
+        ");
+        $requeteFilmGenre->execute([':id_genre' => $id_genre]);
+        $films = $requeteFilmGenre->fetchAll();
+
         require "view/detailsGenre.php";
     }
 
@@ -102,6 +114,20 @@ class CinemaController
     ");
     $requete->execute([':id_acteur' => $id_acteur]);
     $detailsActeur = $requete->fetch();
+
+    // Reqûete pour afficher la filmographie de l'acteur
+    $requeteNbFilms = $pdo->prepare
+    ("
+    SELECT film.img, film.titre, film.anneeSortie, CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree, role.nomPersonnage
+    FROM film
+    JOIN jouer ON film.id_film = jouer.id_film
+    JOIN acteur ON jouer.id_acteur = acteur.id_acteur
+    JOIN role ON jouer.id_role = role.id_role
+    WHERE acteur.id_acteur = :id_acteur
+    ");
+    $requeteNbFilms->execute([':id_acteur' => $id_acteur]);
+    $nbFilms = $requeteNbFilms->fetchAll();
+
 
     require "view/detailsActeur.php";  // Passer les détails à la vue
 }
@@ -144,6 +170,20 @@ class CinemaController
         // Récupérer les détails du film
         $detailsFilm = $requete->fetch();
 
+        // Requête pour afficher les acteurs du film
+        $requeteCasting = $pdo->prepare
+        ("
+            SELECT personne.img, personne.prenom, personne.nom, role.nomPersonnage
+            FROM film 
+            JOIN jouer ON film.id_film = jouer.id_film
+            JOIN role ON jouer.id_role = role.id_role
+            JOIN acteur ON jouer.id_acteur = acteur.id_acteur
+            JOIN personne ON acteur.id_personne = personne.id_personne
+            WHERE film.id_film = :id_film
+        ");
+        $requeteCasting->execute([':id_film' => $id_film]);
+        $casting = $requeteCasting->fetchAll();
+
         // Inclut la vue qui affiche les films
         require "view/detailsFilm.php";
     }
@@ -178,6 +218,19 @@ class CinemaController
         ");
         $requete->execute([':id_realisateur' => $id_realisateur]);
         $detailsRealisateur = $requete->fetch();
+
+        // Requête pour afficher le nombre de films réalisés par le réalisateur
+        $requeteNbFilms = $pdo->prepare
+        ("
+        SELECT film.img, film.titre, film.anneeSortie, personne.prenom AS prenomRealisateur, personne.nom AS nomRealisateur
+        FROM film
+        JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
+        JOIN personne ON realisateur.id_personne = personne.id_personne
+        WHERE realisateur.id_personne = :id_realisateur
+        ");
+        $requeteNbFilms->execute([':id_realisateur' => $id_realisateur]);
+        $nbFilms = $requeteNbFilms->fetchAll();
+
 
         require "view/detailsRealisateur.php";
     }
@@ -360,3 +413,11 @@ class CinemaController
     }
 
 }
+
+// film : casting role
+
+// acteur filmographie role
+
+// realisateur liste films 
+
+// role => film = acteur

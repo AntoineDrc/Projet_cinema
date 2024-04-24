@@ -4,8 +4,8 @@
     <h1>DETAILS DU REALISATEUR</h1>
 </div>
 
-<div class="realisateurDetails">
-    <div class="realisateurPhoto">
+<div class="personneDetails">
+    <div class="personnePhoto">
         <img src="<?= ($detailsRealisateur["img"]) ?>" alt="">
     </div>
     <div class="acteurInfo">
@@ -18,7 +18,35 @@
     <p>Biographie :<br><br><?= ($detailsRealisateur["biographie"]) ?></p>
 </div>
 
+<h2>FILMOGRAPHIE</h2>
+<div class="filmographie">
+    <?php 
+    foreach ($nbFilms as $film)
+    {
+    ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jaquette</th>
+                    <th>Titre</th>
+                    <th>Année</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="<?= ($film["img"]) ?>" alt=""></td>
+                    <td><?= ($film["titre"]) ?></td>
+                    <td><?= ($film["anneeSortie"]) ?></td>
+                </tr>
+        </table>
 
+    
+    <?php  
+    }
+    ?>
+    
+    
+</div>
 
 <?php
 // Prépare les variables pour le template 

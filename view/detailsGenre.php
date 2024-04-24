@@ -17,6 +17,11 @@ $detailsUrl = "index.php?action=editGenreForm&id=" . $detailsGenre['id_categorie
     </div>
 </div>
 
+<div class="titreSecondaire">
+    <h2>FILMS</h2>
+</div>
+
+
 
 
 <?php

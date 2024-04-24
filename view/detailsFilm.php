@@ -24,6 +24,38 @@ ob_start();
         </div>
     </div>
 
+<div class="titreSecondaire">
+    <h2>CASTING</h2>
+</div>
+<div class="filmographie">
+    <?php
+    foreach ($casting as $acteur)
+    {
+    ?>
+    <table>
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Rôle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="<?= ($acteur["img"]) ?>" alt=""></td>
+                <td><?= ($acteur["prenom"]) ?></td>
+                <td><?= ($acteur["nom"]) ?></td>
+                <td><?= ($acteur["nomPersonnage"]) ?></td>
+            </tr>
+        </tbody>
+    </table>
+    <?php
+    }
+    ?>
+</div>
+
+
 <?php
 // Prépare les variables pour le template 
 $titre = "Détails Film";
