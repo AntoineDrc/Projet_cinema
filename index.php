@@ -66,6 +66,12 @@ if(isset($_GET["action"]))
         case "listGenres":
             $ctrlCinema->listGenres();
             break;
+        case "listRoles":
+            $ctrlCinema->listRoles();
+            break;
+        case "detailsRole":
+            $ctrlCinema->detailsRole($id);
+            break;
         case "detailsGenre":
             $ctrlCinema->detailsGenre($id);
             break;
@@ -82,3 +88,9 @@ else
 // Si aucune action n'est définie dans l'URL, charger la page d'accueil
 $ctrlCinema->home();
 }
+
+
+<?=  ?>
+
+<?php  ?>
+

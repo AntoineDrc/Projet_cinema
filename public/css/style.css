@@ -163,17 +163,17 @@ footer {
   margin-bottom: 2rem;
 }
 
-.tableFilms img {
+.table img {
   width: 10rem;
   height: auto;
 }
 
-.tableFilms {
+.table {
   border-collapse: separate;
   border-spacing: 0 5rem;
 }
 
-.tableFilms td {
+.table td {
   text-align: center;
 }
 
@@ -245,7 +245,7 @@ footer {
   align-items: center;
 }
 
-.acteurInfo {
+.personneInfo {
   display: flex;
   flex-direction: column;
 }

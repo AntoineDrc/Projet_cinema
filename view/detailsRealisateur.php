@@ -8,7 +8,7 @@
     <div class="personnePhoto">
         <img src="<?= ($detailsRealisateur["img"]) ?>" alt="">
     </div>
-    <div class="acteurInfo">
+    <div class="personneInfo">
         <p><?= ($detailsRealisateur["prenom"]) ?></p>
         <p><?= ($detailsRealisateur["nom"]) ?></p>
         <p>née le : <?= ($detailsRealisateur["dateNaissance"]) ?></p>

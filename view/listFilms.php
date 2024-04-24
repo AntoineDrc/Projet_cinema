@@ -4,7 +4,7 @@
     <h1> FILMS A L'AFFICHE</h1>
 </div>
 <!-- Tableau HTML pour lister les films. -->
-<table class="tableFilms">
+<table class="table">
     <thead>
         <tr>
             <th>JAQUETTE</th>
@@ -27,7 +27,7 @@
                 <td><a href="<?= $detailsUrl ?>">
                     <img src=<?="$imgPath" ?> alt="Jaquette de ($film['titre'])"></a></td>
                 <td><a href="<?= $detailsUrl ?>">
-                    <?= $film["titre"] ?></a></td>
+                <td><?= $film["titre"] ?></a></td>
                 <td><?= $film["anneeSortie"] ?></td>
                 <td><?= $film["duree"] ?></td>
                 <td><?= $film["genre"] ?></td>

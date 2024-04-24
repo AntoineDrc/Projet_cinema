@@ -1,6 +1,4 @@
-<?php  
-ob_start();
-?>
+<?php ob_start(); ?>
 
 <div class="titrePage">
     <h1>DETAILS DU FILM</h1>
@@ -31,17 +29,17 @@ ob_start();
     <?php
     foreach ($casting as $acteur)
     {
-    ?>
-    <table>
-        <thead>
-            <tr>
-                <th>Photo</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Rôle</th>
-            </tr>
-        </thead>
-        <tbody>
+        ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Rôle</th>
+                </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td><img src="<?= ($acteur["img"]) ?>" alt=""></td>
                 <td><?= ($acteur["prenom"]) ?></td>
