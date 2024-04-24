@@ -6,7 +6,6 @@ use Model\Connect;
 
 class FilmController
 {
-
     // Méthode pour récupérer et afficher la liste des films
     public function listFilms()
     {
@@ -14,12 +13,13 @@ class FilmController
         $pdo = Connect::seConnecter();
 
         // Exécute la requête SQL pour sélectionner les films
-        $requete = $pdo->query("
-        SELECT titre, anneeSortie, film.id_film,
-        CONCAT(FLOOR(film.duree / 60), 'h', LPAD (film.duree % 60, 2, '0')) AS duree, categorie.genre, film.note
-        FROM film
-        JOIN appartenir ON film.id_film = appartenir.id_film
-        JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
+        $requete = $pdo->query
+        ("
+            SELECT titre, anneeSortie, film.id_film,
+            CONCAT(FLOOR(film.duree / 60), 'h', LPAD (film.duree % 60, 2, '0')) AS duree, categorie.genre, film.note
+            FROM film
+            JOIN appartenir ON film.id_film = appartenir.id_film
+            JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
         ");
 
         // Préparation des données pour la vue
@@ -33,40 +33,45 @@ class FilmController
     public function detailsFilm($id_film)
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("
-        SELECT 
-        film.img,
-        film.id_film,
-        film.titre, 
-        film.anneeSortie, 
-        CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
-        categorie.genre, 
-        persRealisateur.prenom AS prenomRealisateur, 
-        persRealisateur.nom AS nomRealisateur,
-        GROUP_CONCAT(DISTINCT CONCAT(persActeur.prenom, ' ', persActeur.nom) SEPARATOR ', ') AS acteurs, 
-        film.note
-        FROM 
-        film
-        JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
-        JOIN personne AS persRealisateur ON realisateur.id_personne = persRealisateur.id_personne
-        JOIN jouer ON film.id_film = jouer.id_film
-        JOIN acteur ON jouer.id_acteur = acteur.id_acteur
-        JOIN personne AS persActeur ON acteur.id_personne = persActeur.id_personne
-        JOIN appartenir ON film.id_film = appartenir.id_film 
-        JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
-        WHERE film.id_film = :id
-        GROUP BY 
-        film.id_film, film.titre, film.anneeSortie, film.duree, categorie.genre, 
-        persRealisateur.prenom, persRealisateur.nom, film.note;
-    ");
+        $requete = $pdo->prepare
+        ("
+            SELECT 
+            film.img,
+            film.id_film,
+            film.titre, 
+            film.anneeSortie, 
+            CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
+            categorie.genre, 
+            persRealisateur.prenom AS prenomRealisateur, 
+            persRealisateur.nom AS nomRealisateur,
+            GROUP_CONCAT(DISTINCT CONCAT(persActeur.prenom, ' ', persActeur.nom) SEPARATOR ', ') AS acteurs, 
+            film.note
+            FROM 
+            film
+            JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
+            JOIN personne AS persRealisateur ON realisateur.id_personne = persRealisateur.id_personne
+            JOIN jouer ON film.id_film = jouer.id_film
+            JOIN acteur ON jouer.id_acteur = acteur.id_acteur
+            JOIN personne AS persActeur ON acteur.id_personne = persActeur.id_personne
+            JOIN appartenir ON film.id_film = appartenir.id_film 
+            JOIN categorie ON appartenir.id_categorie = categorie.id_categorie
+            WHERE film.id_film = :id
+            GROUP BY 
+            film.id_film, film.titre, film.anneeSortie, film.duree, categorie.genre, 
+            persRealisateur.prenom, persRealisateur.nom, film.note;
+        ");
 
-        $requete->execute([":id" => $id_film]);
+        $requete->execute
+        ([
+            ":id" => $id_film
+        ]);
 
         // Récupérer les détails du film
         $detailsFilm = $requete->fetch();
 
         // Requête pour afficher les acteurs du film
-        $requeteCasting = $pdo->prepare("
+        $requeteCasting = $pdo->prepare
+        ("
             SELECT personne.img, personne.prenom, personne.nom, role.nomPersonnage
             FROM film 
             JOIN jouer ON film.id_film = jouer.id_film
@@ -75,7 +80,12 @@ class FilmController
             JOIN personne ON acteur.id_personne = personne.id_personne
             WHERE film.id_film = :id_film
         ");
-        $requeteCasting->execute([':id_film' => $id_film]);
+
+        $requeteCasting->execute
+        ([
+            ':id_film' => $id_film
+        ]);
+
         $casting = $requeteCasting->fetchAll();
 
         // Inclut la vue qui affiche les films
@@ -87,20 +97,24 @@ class FilmController
     {
         // Requête pour récupérer la liste des realisateurs
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("
+        $requete = $pdo->query
+        ("
             SELECT img, prenom, nom, realisateur.id_realisateur
             FROM personne 
             JOIN realisateur ON personne.id_personne = realisateur.id_personne
             ORDER BY nom ASC 
         ");
+
         $realisateurs = $requete->fetchAll();
 
         // Requête pour récupérer la liste des genres
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("
+        $requete = $pdo->query
+        ("
             SELECT genre, id_categorie
             FROM categorie
         ");
+
         $genres = $requete->fetchAll();
 
         require "view/filmForm.php";
@@ -113,29 +127,46 @@ class FilmController
         $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_SPECIAL_CHARS);
         $anneeSortie = filter_input(INPUT_POST, "anneeSortie", FILTER_SANITIZE_NUMBER_INT);
         $duree = filter_input(INPUT_POST, "duree", FILTER_SANITIZE_NUMBER_INT);
-
         $genre = filter_input(INPUT_POST, "genre", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         $realisateur = filter_input(INPUT_POST, "realisateur", FILTER_SANITIZE_NUMBER_INT);
 
         $pdo = Connect::seConnecter();
 
         // Vérifie si la variable titre, anneeSortie, duree ne sont pas nulles ou vides
-        if ($titre != null && $anneeSortie != null && $duree != null) {
-            $requete = $pdo->prepare('
+        if ($titre != null && $anneeSortie != null && $duree != null) 
+        {
+            $requete = $pdo->prepare
+            ('
                 INSERT INTO film (titre, anneeSortie, duree, id_realisateur)
                 VALUES (:titre, :anneeSortie, :duree, :id_realisateur) 
             ');
-            $requete->execute([":titre" => $titre, ":anneeSortie" => $anneeSortie, ":duree" => $duree, ":id_realisateur" => $realisateur]);
+
+            $requete->execute
+            ([
+                ":titre" => $titre,
+                ":anneeSortie" => $anneeSortie, 
+                ":duree" => $duree, 
+                ":id_realisateur" => $realisateur
+            ]);
         }
+
         // Vérifie si la variable genre n'est pas nulle ou vide
-        if ($genre != null) {
+        if ($genre != null) 
+        {
             $idFilm = $pdo->lastInsertId();
-            foreach ($genre as $g) {
-                $requete = $pdo->prepare('
+            foreach ($genre as $g) 
+            {
+                $requete = $pdo->prepare
+                ('
                     INSERT INTO appartenir (id_categorie, id_film)
                     VALUES (:id_categorie, :id_film)
                 ');
-                $requete->execute([":id_categorie" => $g, ":id_film" => $idFilm]);
+
+                $requete->execute
+                ([
+                    ":id_categorie" => $g,
+                    ":id_film" => $idFilm
+                ]);
             }
         }
 

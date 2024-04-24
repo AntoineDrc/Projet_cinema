@@ -1,7 +1,10 @@
 <?php
 
-// Utilise l'espace de noms du contrôleur pour accèder à CinemaController
-use Controller\CinemaController;
+// Utilise l'espace de noms du contrôleur pour accèder aux différentes classes de contrôleurs
+use Controller\GenreController;
+use Controller\ActeurController;
+use Controller\RealisateurController;
+use Controller\RoleController;
 
 // Enregistre une fonction d'autoload pour charger automatiquement les classes nécessaires
 spl_autoload_register(function ($class_name) 
@@ -9,8 +12,11 @@ spl_autoload_register(function ($class_name)
     include $class_name . '.php';
 });
 
-// Instancie le contrôleur de cinéma
-$ctrlCinema = new CinemaController();
+// Instancie les différents contrôleurs
+$ctrlGenre = new GenreController();
+$ctrlActeur = new ActeurController();
+$ctrlRealisateur = new RealisateurController();
+$ctrlRole = new RoleController();
 
 // Vérifie si une action est spécifiée dans l'URL 
 if (isset($_GET["action"])) {
@@ -21,54 +27,50 @@ if (isset($_GET["action"])) {
         $id = filter_var($id, FILTER_VALIDATE_INT);
     };
 
-
     // Execute une action en fonction du paramètre "action"
     switch ($_GET["action"]) 
     {
-
-        case "listActeurs": // Affiche la liste des acteurs
-            $ctrlCinema->listActeurs();
+        case "listActeurs": 
+            $ctrlActeur->listActeurs();
             break;
         case 'detailsActeur':
-            $ctrlCinema->detailsActeur($id);
+            $ctrlActeur->detailsActeur($id);
             break;
-
         case "addGenreForm":
-            $ctrlCinema->addGenreForm();
+            $ctrlGenre->addGenreForm();
             break;
         case "addGenre":
-            $ctrlCinema->addGenre();
+            $ctrlGenre->addGenre();
             break;
-
         case "addRealisateurForm":
-            $ctrlCinema->addRealisateurForm();
+            $ctrlRealisateur->addRealisateurForm();
             break;
         case "addRealisateur":
-            $ctrlCinema->addRealisateur();
+            $ctrlRealisateur->addRealisateur();
             break;
         case "listRealisateurs":
-            $ctrlCinema->listRealisateurs();
+            $ctrlRealisateur->listRealisateurs();
             break;
         case "detailsRealisateur":
-            $ctrlCinema->detailsRealisateur($id);
+            $ctrlRealisateur->detailsRealisateur($id);
             break;
         case "listGenres":
-            $ctrlCinema->listGenres();
+            $ctrlGenre->listGenres();
             break;
         case "listRoles":
-            $ctrlCinema->listRoles();
+            $ctrlRole->listRoles();
             break;
         case "detailsRole":
-            $ctrlCinema->detailsRole($id);
+            $ctrlRole->detailsRole($id);
             break;
         case "detailsGenre":
-            $ctrlCinema->detailsGenre($id);
+            $ctrlGenre->detailsGenre($id);
             break;
         case "editGenreForm":
-            $ctrlCinema->editGenreForm($id);
+            $ctrlGenre->editGenreForm($id);
             break;
         case "editGenre":
-            $ctrlCinema->editGenre($id);
+            $ctrlGenre->editGenre($id);
             break;
     }
 } else 
