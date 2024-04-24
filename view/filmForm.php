@@ -4,7 +4,7 @@
     <h1>AJOUTER UN FILM</h1>
 </div>
 <div class="formulaire">
-    <form action="index.php?action=addFilm" method="post">
+    <form action="indexFilm.php?action=addFilm" method="post">
         <div class="entreeFilm">
             <label for="Titre">Titre</label>
             <input type="text" name="titre">
