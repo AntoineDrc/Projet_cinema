@@ -12,7 +12,7 @@ class RoleController
         $pdo = Connect::seConnecter();
         $requete = $pdo->query
         ("
-            SELECT role.id_role, nomPersonnage, personne.prenom, personne.nom
+            SELECT role.img, role.id_role, nomPersonnage, personne.prenom, personne.nom
             FROM role
             JOIN jouer ON role.id_role = jouer.id_role
             JOIN acteur ON jouer.id_acteur = acteur.id_acteur

@@ -10,14 +10,18 @@ foreach ($genres as $genre)
 {
     $detailsUrl = "index.php?action=detailsGenre&id=" . $genre['id_categorie'];
 ?>
-    <div class="genres">
-        <div class="genreImg">
+    <div class="card">
+        <div class="cardImage">
             <a href="<?= $detailsUrl ?>">
-                <img src="<?= $genre["img"]?>" alt=""></a>
+                <img src=<?= $genre['img'] ?> alt="Photo de <?= $genre['genre'] ?>"></a>
         </div>
-        <div class="genreInfo">
-            <a href="<?= $detailsUrl ?>">
-                <p><?= $genre["genre"]?></p></a>
+        <div class="cardInfo">
+            <div class="cardText">
+                <div class="cardTextTitre">
+                    <p><a href="<?= $detailsUrl ?>">
+                            <?= $genre["genre"] ?></a></p>
+                </div>
+            </div>
         </div>
     </div>
 <?php

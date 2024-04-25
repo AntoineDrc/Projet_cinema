@@ -3,25 +3,29 @@
 <div class="titrePage">
     <h1>TOUT LES ACTEURS</h1>
 </div>
-<!-- Tableau HTML pour lister les acteurs. -->
-<table class="tableActeurs">
-    <tbody>
-        <?php foreach($acteurs as $personne): ?>
-            <?php
-                $imgPath = "public/img/" . $personne["nom"] . ".jpg";
-                $detailsUrl = "index.php?action=detailsActeur&id=" . $personne['id_acteur'];
-            ?>
-            <tr>
-                <td><a href="<?= $detailsUrl ?>">
-                    <img src="<?= $imgPath ?>" alt="Photo de <?= $personne['prenom'] ?>"></a></td>
-                <td><a href="<?= $detailsUrl ?>"><?= $personne["prenom"] ?></a></td>
-                <td><a href="<?= $detailsUrl ?>"><?= $personne["nom"] ?></a></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
 
 <?php
+foreach ($acteurs as $personne) 
+{
+    $detailsUrl = "index.php?action=detailsActeur&id=" . $personne['id_acteur'];
+?>
+    <div class="card">
+        <div class="cardImage">
+            <a href="<?= $detailsUrl ?>">
+                <img src=<?= $personne['img'] ?> alt="Photo de <?= $personne['prenom'] . " " . $personne['nom'] ?>"></a>
+        </div>
+        <div class="cardInfo">
+            <div class="cardText">
+                <div class="cardTextTitre">
+                    <p><a href="<?= $detailsUrl ?>">
+                            <?= $personne["prenom"] . " " . $personne["nom"] ?></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+}
+
 $titre = "Liste des acteurs";
 $titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();

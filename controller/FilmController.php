@@ -15,7 +15,7 @@ class FilmController
         // Exécute la requête SQL pour sélectionner les films
         $requete = $pdo->query
         ("
-            SELECT titre, anneeSortie, film.id_film,
+            SELECT film.img, titre, anneeSortie, film.id_film,
             CONCAT(FLOOR(film.duree / 60), 'h', LPAD (film.duree % 60, 2, '0')) AS duree, categorie.genre, film.note
             FROM film
             JOIN appartenir ON film.id_film = appartenir.id_film

@@ -4,34 +4,29 @@
     <h1>LES ROLES</h1>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ROLE</th>
-            <th>ACTEUR PRENOM</th>
-            <th>ACTEUR NOM</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        // Boucle sur chaque film récupéré de la base de données.
-        foreach ($roles as $role)
-        {
-            $detailsUrl = "index.php?action=detailsRole&id=" . $role['id_role'];
-        ?>
-            <tr>
-                <td><a href="<?= $detailsUrl ?>">
-                    <?= $role["nomPersonnage"] ?></a></td>
-                <td><?= $role["prenom"] ?></td>
-                <td><?= $role["nom"] ?></td>
-            </tr>
-        <?php
-        }
-        ?>
-</table>
 
-
-
+<?php
+// Boucle sur chaque film récupéré de la base de données.
+foreach ($roles as $role) {
+    $detailsUrl = "index.php?action=detailsRole&id=" . $role['id_role'];
+?>
+    <div class="card">
+        <div class="cardImage">
+            <a href="<?= $detailsUrl ?>">
+                <img src=<?= $role['img'] ?> alt="Photo de <?= $role['nomPersonnage'] ?>"></a>
+        </div>
+        <div class="cardInfo">
+            <div class="cardText">
+                <div class="cardTextTitre">
+                    <p><a href="<?= $detailsUrl ?>">
+                            <?= $role["nomPersonnage"] ?></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php
+}
+?>
 
 <?php
 // Prépare les variables pour le template 

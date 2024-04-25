@@ -4,23 +4,24 @@
     <h1>LES REALISATEURS</h1>
 </div>
 
-<?php foreach ($realisateurs as $realisateur) 
-{ 
+<?php foreach ($realisateurs as $realisateur) {
     $detailsUrl = "index.php?action=detailsRealisateur&id=" . $realisateur['id_realisateur'];
-    ?>
-    <div class="realisateurs">
-        <div class="realisateurImg">
+?>
+    <div class="card">
+        <div class="cardImage">
             <a href="<?= $detailsUrl ?>">
-                <img src="<?= $realisateur["img"]?>" alt=""></a>
+                <img src=<?= $realisateur['img'] ?> alt="Photo de <?= $realisateur['prenom'] . " " . $realisateur['nom'] ?>"></a>
         </div>
-        <div class="realisateurInfo">
-            <a href="<?= $detailsUrl ?>">
-                <p><?= $realisateur["prenom"]?></p></a>
-            <a href="<?= $detailsUrl ?>">
-                <p><?= $realisateur["nom"]?></p>
+        <div class="cardInfo">
+            <div class="cardText">
+                <div class="cardTextTitre">
+                    <p><a href="<?= $detailsUrl ?>">
+                            <?= $realisateur["prenom"] . " " . $realisateur["nom"] ?></a></p>
+                </div>
+            </div>
         </div>
     </div>
-<?php 
+<?php
 } ?>
 
 <?php

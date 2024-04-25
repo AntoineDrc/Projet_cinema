@@ -12,7 +12,7 @@ class ActeurController
         $pdo = Connect::seConnecter();
         $requete = $pdo->query
         ("
-            SELECT personne.id_personne, personne.prenom, personne.nom, acteur.id_acteur
+            SELECT personne.img, personne.id_personne, personne.prenom, personne.nom, acteur.id_acteur
             FROM personne
             JOIN acteur ON personne.id_personne = acteur.id_personne
         ");
