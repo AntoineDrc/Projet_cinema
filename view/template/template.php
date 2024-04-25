@@ -13,7 +13,7 @@
         <header>
             <?php include 'nav.php'; ?>
         </header>
-        <main>
+        <main class="<?= ($titre == "Accueil") ? 'home' : '' ?>">
             <?= $contenu ?>
         </main>
         <footer>
