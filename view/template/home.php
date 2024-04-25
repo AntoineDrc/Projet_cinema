@@ -3,6 +3,7 @@
 <div class="bannerTop">
     <h5>RETROUVEZ NOTRE SELECTION DE FILMS</h5>
 </div>
+
 <!-- Swiper pour le carrousel du haut -->
 <div class="swiper-container carousselTop">
     <div class="swiper-wrapper">
