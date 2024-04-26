@@ -42,8 +42,8 @@ class FilmController
             film.anneeSortie, 
             CONCAT(FLOOR(film.duree / 60), 'h', LPAD(film.duree % 60, 2, '0'), 'm') AS duree,
             categorie.genre, 
-            persRealisateur.prenom AS prenomRealisateur, 
-            persRealisateur.nom AS nomRealisateur,
+            film.synopsis,
+            GROUP_CONCAT(DISTINCT CONCAT(persRealisateur.prenom, ' ', persRealisateur.nom) SEPARATOR ', ') AS realisateur,
             GROUP_CONCAT(DISTINCT CONCAT(persActeur.prenom, ' ', persActeur.nom) SEPARATOR ', ') AS acteurs, 
             film.note
             FROM 
@@ -67,7 +67,7 @@ class FilmController
         ]);
 
         // Récupérer les détails du film
-        $detailsFilm = $requete->fetch();
+        $film = $requete->fetch();
 
         // Requête pour afficher les acteurs du film
         $requeteCasting = $pdo->prepare

@@ -29,7 +29,8 @@ class ActeurController
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare
         ("
-            SELECT img, prenom, nom, dateNaissance, biographie
+            SELECT img, prenom, nom, biographie, 
+            DATE_FORMAT (personne.dateNaissance, '%d/%m/%Y') AS dateNaissance
             FROM personne 
             JOIN acteur ON personne.id_personne = acteur.id_personne
             WHERE acteur.id_acteur = :id_acteur

@@ -4,54 +4,48 @@
     <h1>DETAILS DU FILM</h1>
 </div>
 
-<div class="filmDetails">
-    <div class="filmPhoto">
-        <img src="<?= ($detailsFilm["img"]) ?>" alt="">
+<div class="card">
+    <div class="cardImage">
+        <img src="<?= ($film["img"]) ?>" alt="Jaquette de <?= ($film["titre"]) ?>">
     </div>
-    <div class="filmInfo">
-        <p><?= ($detailsFilm["titre"]) ?></p>
-        <p><?= ($detailsFilm["anneeSortie"]) ?></p>
-        <p><?= ($detailsFilm["duree"]) ?></p>
-        <p><?= ($detailsFilm["genre"]) ?></p>
-        <p><?= ($detailsFilm["prenomRealisateur"]) ?></p>
-        <p><?= ($detailsFilm["nomRealisateur"]) ?></p>
-        <p><?= ($detailsFilm["acteurs"]) ?></p>
+    <div class="cardInfo">
+        <div class="cardText">
+            <div class="cardTextTitre">
+                <p><?= ($film["titre"]) ?></p>
+            </div>
+            <p><em><?= ($film["anneeSortie"]) ?> | <?= ($film["duree"]) ?> | <?= ($film["genre"]) ?></em></p>
+            <p>De : <b><?= ($film["realisateur"]) ?></b></p>
+        </div>
         <div class="note">
-            <p><?= ($detailsFilm["note"]) ?></p>
+            <p><?= ($film["note"]) ?></p>
+            <p><i class="fa-solid fa-star" style="color: #FFD43B;"></i></p>
         </div>
     </div>
 </div>
+<div class="textUnderCard">
+    <p><?= ($film["synopsis"]) ?></p>
+</div>
 
 <div class="titreSecondaire">
-    <h2>CASTING</h2>
+    <h3>CASTING</h3>
 </div>
-<div class="filmographie">
-    <?php
-    foreach ($casting as $acteur) 
-    {
-    ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Photo</th>
-                    <th>Prénom</th>
-                    <th>Nom</th>
-                    <th>Rôle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="<?= ($acteur["img"]) ?>" alt=""></td>
-                    <td><?= ($acteur["prenom"]) ?></td>
-                    <td><?= ($acteur["nom"]) ?></td>
-                    <td><?= ($acteur["nomPersonnage"]) ?></td>
-                </tr>
-            </tbody>
-        </table>
-    <?php
-    }
-    ?>
-</div>
+<?php
+foreach ($casting as $acteur) 
+{
+?>
+    <div class="mediaList">
+        <div class="mediaListImg">
+            <img src="<?= ($acteur["img"]) ?>" alt="">
+        </div>
+        <div class="mediaListInfo">
+            <p>Avec : <b><?= ($acteur["prenom"]) ?> <?= ($acteur["nom"]) ?></b></p>
+            <p>Rôle : <em><?= ($acteur["nomPersonnage"]) ?></em></p>
+        </div>
+    </div>
+
+<?php
+}
+?>
 
 
 <?php
