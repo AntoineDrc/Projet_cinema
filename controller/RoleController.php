@@ -46,7 +46,7 @@ class RoleController
             ':id_role' => $id_role
         ]);
 
-        $detailsRole = $requete->fetch();
+        $role = $requete->fetch();
 
         require "view/role/detailsRole.php";
     }

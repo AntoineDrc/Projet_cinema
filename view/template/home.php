@@ -20,9 +20,11 @@
             <img src="public/img/sinister.jpg" alt="jaquette du film Sinister">
         </div>
     </div>
-    <div class="swiper-pagination carousselTop-pagination"></div>
-    <div class="swiper-button-prev carousselTop-button-prev"></div>
-    <div class="swiper-button-next carousselTop-button-next"></div>
+    <div class="pagination top">
+        <div class="swiper-pagination carousselTop-pagination"></div>
+        <div class="swiper-button-prev carousselTop-button-prev"></div>
+        <div class="swiper-button-next carousselTop-button-next"></div>
+    </div>
 </div>
 
 <div class="bannerBot">
@@ -43,9 +45,11 @@
         <div class="swiper-slide"><img src="public/img/aventure.jpg" alt="Genre Aventure">
         </div>
     </div>
-    <div class="swiper-pagination carousselBot-pagination"></div>
-    <div class="swiper-button-prev carousselBot-button-prev"></div>
-    <div class="swiper-button-next carousselBot-button-next"></div>
+    <div class="pagination bot">
+        <div class="swiper-pagination carousselBot-pagination"></div>
+        <div class="swiper-button-prev carousselBot-button-prev"></div>
+        <div class="swiper-button-next carousselBot-button-next"></div>
+    </div>
 </div>
 
 <?php

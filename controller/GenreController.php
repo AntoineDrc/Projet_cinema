@@ -45,7 +45,7 @@ class GenreController
             ':id_genre' => $id_genre
         ]);
 
-        $detailsGenre = $requete->fetch();
+        $genre = $requete->fetch();
 
         // Requête pour afficher les films du genre
         $requeteFilmGenre = $pdo->prepare

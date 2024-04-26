@@ -47,7 +47,6 @@ foreach ($casting as $acteur)
 }
 ?>
 
-
 <?php
 // Prépare les variables pour le template 
 $titre = "Détails Film";

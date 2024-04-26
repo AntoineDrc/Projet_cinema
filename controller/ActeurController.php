@@ -41,7 +41,7 @@ class ActeurController
             ':id_acteur' => $id_acteur
         ]);
 
-        $detailsActeur = $requete->fetch();
+        $acteur = $requete->fetch();
 
         // Reqûete pour afficher la filmographie de l'acteur
         $requeteNbFilms = $pdo->prepare

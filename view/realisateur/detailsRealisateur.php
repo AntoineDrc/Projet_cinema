@@ -4,49 +4,42 @@
     <h1>DETAILS DU REALISATEUR</h1>
 </div>
 
-<div class="personneDetails">
-    <div class="personnePhoto">
-        <img src="<?= ($detailsRealisateur["img"]) ?>" alt="">
+<div class="card">
+    <div class="cardImage">
+        <img src="<?= ($realisateur["img"]) ?>" alt="Photo de <?= ($realisateur["prenom"]) ?> <?= ($realisateur["nom"]) ?>">
     </div>
-    <div class="personneInfo">
-        <p><?= ($detailsRealisateur["prenom"]) ?></p>
-        <p><?= ($detailsRealisateur["nom"]) ?></p>
-        <p>née le : <?= ($detailsRealisateur["dateNaissance"]) ?></p>
+    <div class="cardInfo">
+        <div class="cardText">
+            <div class="cardTextTitre">
+                <p><?= ($realisateur["prenom"]) ?> <?= ($realisateur["nom"]) ?></p>
+            </div>
+            <p>Née le : <em><?= ($realisateur["dateNaissance"]) ?></em></p>
+        </div>
     </div>
 </div>
-<div class="biographie">
-    <p>Biographie :<br><br><?= ($detailsRealisateur["biographie"]) ?></p>
+<div class="textUnderCard">
+    <p><?= nl2br($realisateur["biographie"]) ?></p>
 </div>
 
-<h2>FILMOGRAPHIE</h2>
-<div class="filmographie">
-    <?php 
-    foreach ($nbFilms as $film)
-    {
-    ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Jaquette</th>
-                    <th>Titre</th>
-                    <th>Année</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="<?= ($film["img"]) ?>" alt=""></td>
-                    <td><?= ($film["titre"]) ?></td>
-                    <td><?= ($film["anneeSortie"]) ?></td>
-                </tr>
-        </table>
-
-    
-    <?php  
-    }
-    ?>
+<div class="titreSecondaire">
+    <h2>FILMOGRAPHIE</h2>
 </div>
+<?php
+foreach ($nbFilms as $film) 
+{
+?>
+    <div class="mediaList">
+        <div class="mediaListImg">
+            <img src="<?= ($film["img"]) ?>" alt="">
+        </div>
+        <div class="mediaListInfo">
+            <p><b><?= ($film["titre"]) ?></b> (<?= ($film["anneeSortie"]) ?>)</p>
+        </div>
+    </div>
 
 <?php
+}
+
 // Prépare les variables pour le template 
 $titre = "Détails Réalisateur";
 $titre_secondaire = "";

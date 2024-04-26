@@ -73,6 +73,7 @@ if (isset($_GET["action"])) {
             break;
         case "detailsGenre":
             $ctrlGenre->detailsGenre($id);
+            break;
         case "addGenreForm":
             $ctrlGenre->addGenreForm();
             break;

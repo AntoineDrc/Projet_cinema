@@ -3,51 +3,42 @@
 <div class="titrePage">
     <h1>DETAILS DE L'ACTEUR</h1>
 </div>
-<div class="personneDetails">
-    <div class="personnePhoto">
-        <img src="<?= ($detailsActeur["img"]) ?>" alt="">
-    </div>
-    <div class="acteurInfo">
-        <p><?= ($detailsActeur["prenom"]) ?></p>
-        <p><?= ($detailsActeur["nom"]) ?></p>
-        <p>née le : <?= ($detailsActeur["dateNaissance"]) ?></p>
-    </div>
-</div>
-<div class="biographie">
-    <p>Biographie :<br><br><?= ($detailsActeur["biographie"]) ?></p>
-</div>
 
+<div class="card">
+    <div class="cardImage">
+        <img src="<?= ($acteur["img"]) ?>" alt="Photo de <?= ($acteur["prenom"]) ?> <?= ($acteur["nom"]) ?>">
+    </div>
+    <div class="cardInfo">
+        <div class="cardText">
+            <div class="cardTextTitre">
+                <p><?= ($acteur["prenom"]) ?> <?= ($acteur["nom"]) ?></p>
+            </div>
+            <p>Née le : <em><?= ($acteur["dateNaissance"]) ?></em></p>
+        </div>
+    </div>
+</div>
+<div class="textUnderCard">
+    <p><?= nl2br($acteur["biographie"]) ?></p>
+</div>
 <div class="titreSecondaire">
     <h2>FILMOGRAPHIE</h2>
 </div>
-<div class="filmographie">
-    <?php
-    foreach ($nbFilms as $film)
-    {
-    ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Jaquette</th>
-                    <th>Titre</th>
-                    <th>Année</th>
-                    <th>Durée</th>
-                    <th>Rôle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="<?= ($film["img"]) ?>" alt=""></td>
-                    <td><?= ($film["titre"]) ?></td>
-                    <td><?= ($film["anneeSortie"]) ?></td>
-                    <td><?= ($film["duree"]) ?></td>
-                    <td><?= ($film["nomPersonnage"]) ?>
-                    </td>
-                </tr>
-        </table>
-</div>
 <?php
-    }
+foreach ($nbFilms as $film) 
+{
+?>
+    <div class="mediaList">
+        <div class="mediaListImg">
+            <img src="<?= ($film["img"]) ?>" alt="">
+        </div>
+        <div class="mediaListInfo">
+            <p><b><?= ($film["titre"]) ?></b> (<?= ($film["anneeSortie"]) ?>)</p>
+            <p>Rôle : <em><?= ($film["nomPersonnage"]) ?></em></p>
+            <p>Durée : <?= ($film["duree"]) ?></p>
+        </div>
+    </div>
+<?php
+}
 ?>
 
 <?php

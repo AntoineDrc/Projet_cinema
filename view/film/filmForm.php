@@ -6,11 +6,11 @@
 <div class="formulaire">
     <form action="index.php?action=addFilm" method="post">
         <div class="entreeFilm">
-            <label for="Titre">Titre</label>
+            <label for="Titre">Titre :</label>
             <input type="text" name="titre">
             <label for="Année">Année :</label>
             <input type="text" name="anneeSortie">
-            <label for="Durée">Durée</label>
+            <label for="Durée">Durée :</label>
             <input type="text" name="duree">
         </div>
 

@@ -40,7 +40,7 @@ class RealisateurController
             ':id_realisateur' => $id_realisateur
         ]);
 
-        $detailsRealisateur = $requete->fetch();
+        $realisateur = $requete->fetch();
 
         // Requête pour afficher le nombre de films réalisés par le réalisateur
         $requeteNbFilms = $pdo->prepare
