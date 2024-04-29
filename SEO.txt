@@ -1,0 +1,39 @@
+ Réferencement naturel (SEO) :
+ Techniques pour améliorer la visibilité d'un site web dans les moteurs de recherche, l'objectifs est d'obtenir un meilleur classement dans les résultats de recherche.
+
+ Optimisation du contenu : 
+     • Utiliser des mots-clés pertinents
+     • Créer du contenu de qualité
+     • Utiliser des balises HTML appropriées
+
+ Optimisation technique :
+     • Utiliser des URL conviviales
+     • Créer un sitemap XML
+     • Utiliser des balises meta
+
+ Construction de liens :
+     • Créer des liens internes
+     • Créer des liens externes
+     • Utiliser les réseaux sociaux
+
+ Optimisation mobile :
+     • Utiliser un design responsive
+     • Améliorer la vitesse de chargement
+     • Optimiser les images
+
+ SEO local :
+     • Créer une fiche Google My Business
+     • Utiliser des mots-clés locaux
+     • Obtenir des avis positifs
+
+
+- Title pertinent sur chaque page (Optimisation Contenu)
+- Utiliser balise appropriées (Optimisation Contenu)
+- Ajouter meta description sur chaque page (Optimisation technique)
+- description "alt" image
+
+- responsive design
+- performance site (inspecter -> lighthouse)
+- siteMapXml
+
+- balise article -> strong -> em

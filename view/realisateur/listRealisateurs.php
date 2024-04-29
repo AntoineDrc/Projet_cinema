@@ -27,6 +27,7 @@
 <?php
 $titre = "Liste des realisateurs";
 $titre_secondaire = "Liste des realisateurs";
+$meta = "Explorer notre lise de realisateurs du cinéma mondial.";
 $contenu = ob_get_clean();
 require "view/template/template.php";
 ?>

@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="titrePage">
-    <h1>TOUT LES ACTEURS</h1>
+    <h1>LISTE DES ACTEURS</h1>
 </div>
 
 <?php
@@ -28,6 +28,7 @@ foreach ($acteurs as $personne)
 
 $titre = "Liste des acteurs";
 $titre_secondaire = "Liste des acteurs";
+$meta = "Explorer notre lise d'acteurs du cinéma mondial.";
 $contenu = ob_get_clean();
 require "view/template/template.php";
 ?>

@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="titrePage">
-    <h1>DETAILS DE L'ACTEUR</h1>
+    <h1>DETAILS DE L'ACTEUR, BIOGRAPHIE ET FILMOGRAPHIE</h1>
 </div>
 
 <div class="card">
@@ -29,7 +29,7 @@ foreach ($nbFilms as $film)
 ?>
     <div class="mediaList">
         <div class="mediaListImg">
-            <img src="<?= ($film["img"]) ?>" alt="">
+            <img src="<?= ($film["img"]) ?>" alt="Jaquette de <?= $film['titre'] ?>">
         </div>
         <div class="mediaListInfo">
             <p><b><?= ($film["titre"]) ?></b> (<?= ($film["anneeSortie"]) ?>)</p>
@@ -45,6 +45,7 @@ foreach ($nbFilms as $film)
 // Prépare les variables pour le template 
 $titre = "Détails Acteur";
 $titre_secondaire = "Liste des acteurs";
+$meta = "Biographie détaillée de l'acteur, ainsi que sa filmographie complète.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

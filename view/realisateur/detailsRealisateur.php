@@ -30,7 +30,7 @@ foreach ($nbFilms as $film)
 ?>
     <div class="mediaList">
         <div class="mediaListImg">
-            <img src="<?= ($film["img"]) ?>" alt="">
+            <img src="<?= ($film["img"]) ?>" alt="Jaquette de <?= $film['titre'] ?> ">
         </div>
         <div class="mediaListInfo">
             <p><b><?= ($film["titre"]) ?></b> (<?= ($film["anneeSortie"]) ?>)</p>
@@ -43,6 +43,7 @@ foreach ($nbFilms as $film)
 // Prépare les variables pour le template 
 $titre = "Détails Réalisateur";
 $titre_secondaire = "";
+$meta = "Biographie détaillée du réalisateur, ainsi que sa filmographie complète.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

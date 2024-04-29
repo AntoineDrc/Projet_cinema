@@ -22,6 +22,7 @@
 // Prépare les variables pour le template
 $titre = "Ajouter Realisateur";
 $titre_secondaire = "";
+$meta = "Ajouter un réalisateur à la base de données.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

@@ -8,6 +8,8 @@
     <script src="https://kit.fontawesome.com/d036d365f0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title><?= $titre ?></title>
+    <meta name="description" content="<?= $meta ?>"> 
+    
 </head>
 
 <body>

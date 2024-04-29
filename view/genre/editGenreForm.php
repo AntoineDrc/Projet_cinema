@@ -20,6 +20,7 @@
 // Prépare les variables pour le template 
 $titre = "Modifier un genre";
 $titre_secondaire = "";
+$meta = "Modifier un genre de film dans la base de données.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

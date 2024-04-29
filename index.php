@@ -92,3 +92,5 @@ if (isset($_GET["action"])) {
     // Si aucune action n'est définie dans l'URL, charger la page d'accueil
     $ctrlGenre->home();
 }
+
+

@@ -32,6 +32,7 @@ foreach ($roles as $role) {
 // Prépare les variables pour le template 
 $titre = "Liste des rôles";
 $titre_secondaire = "";
+$meta = "Explorer notre liste de rôles de films. Les personnages les plus emblématiques du cinéma mondial.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

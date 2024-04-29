@@ -3,7 +3,7 @@
 <div class="bannerTop">
     <h5>RETROUVEZ NOTRE SELECTION DE FILMS</h5>
 </div>
-
+<article>Découvrez les <strong>dernières sorties</strong> et <strong>classiques du cinéma</strong>, <strong>critique de films</strong>, notes et plus encore !</article>
 <!-- Swiper pour le carrousel du haut -->
 <div class="swiper-container carousselTop">
     <div class="swiper-wrapper">
@@ -56,5 +56,7 @@
 $titre = "Accueil";
 $titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();
+$meta = "Bienvenue sur notre site de cinéma. Retrouvez un large choix de films, acteurs, réalisateurs, genres, rôles. Découvrez les dernières sorties, les films les mieux notés et les plus populaires au moyen de carrousels interactifs.";
+
 require "view/template/template.php";
 ?>

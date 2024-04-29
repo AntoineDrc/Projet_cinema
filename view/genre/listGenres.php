@@ -33,6 +33,7 @@ foreach ($genres as $genre)
 // Prépare les variables pour le template 
 $titre = "Liste des genres";
 $titre_secondaire = "Liste des genres";
+$meta = "Explorer notre liste de genres de films. Action, comédie, drame, horreur, science-fiction, thriller, etc.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

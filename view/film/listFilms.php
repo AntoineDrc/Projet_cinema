@@ -36,6 +36,7 @@ foreach ($films as $film)
 // Prépare les variables pour le template 
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
+$meta = "Explorer notre selection de films tendances. Les dernières sorties, les films les mieux notés et les plus populaires.";
 
 // Termine la capture du contenu et le stocke dans $contenu
 $contenu = ob_get_clean();

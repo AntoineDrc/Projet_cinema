@@ -38,11 +38,6 @@ nav {
 .navMid a {
   text-decoration: none;
   font-size: 0.7em;
-  opacity: 0.2;
-}
-
-.navMid a:hover {
-  opacity: 1;
 }
 
 .navBot a {

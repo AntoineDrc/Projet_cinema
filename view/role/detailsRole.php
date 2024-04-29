@@ -23,6 +23,7 @@
     // Prépare les variables pour le template 
     $titre = "Détails Role";
     $titre_secondaire = "";
+    $meta = "Découvrez les détails du rôle, ainsi que l'acteur qui l'interprète.";
 
     // Termine la capture du contenu et le stocke dans $contenu
     $contenu = ob_get_clean();
